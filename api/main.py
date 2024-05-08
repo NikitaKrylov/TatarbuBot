@@ -2,8 +2,10 @@ from contextlib import asynccontextmanager
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from src.routes.users import router as users_router
+from src.routes.quizzes import router as quiz_router
 from src.database.db import init_models
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
 
 @asynccontextmanager
@@ -34,7 +36,11 @@ app.add_middleware(
     allow_methods=['*'],
     allow_headers=['*']
 )
+
+app.mount("/media", StaticFiles(directory="media/"), name="media")
+
 app.include_router(users_router)
+app.include_router(quiz_router)
 
 if __name__ == '__main__':
     uvicorn.run(app, host='0.0.0.0', port=8000)

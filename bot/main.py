@@ -1,14 +1,16 @@
 import asyncio
 import logging
-from aiogram import Bot, Dispatcher, types
-from aiogram.filters.command import CommandStart
+from aiogram import Bot, Dispatcher, types, F
+from aiogram.filters.command import CommandStart, Command
 from aiogram.types.web_app_info import WebAppInfo
 from aiogram.types.menu_button_web_app import MenuButtonWebApp
 from aiogram.types.inline_keyboard_button import InlineKeyboardButton
 from aiogram.types.inline_keyboard_markup import InlineKeyboardMarkup
 from src.shared.config import config
 from src.repository.api import APIRepository
-import json
+from src.routes.trains import router as trains_router
+from aiogram.fsm.context import FSMContext
+
 
 bot = Bot(token=config.bot_token)
 dp = Dispatcher()
@@ -39,7 +41,19 @@ async def cmd_start(message: types.Message):
     })
     logging.info(str(created_user))
 
+
+
     return await message.answer(f'Будем знакомы, {message.from_user.first_name or message.from_user.username}, иди учи татарский', reply_markup=inline_keyboard)
+
+
+
+@dp.callback_query(F.data == 'cancel')
+async def process_cancel_state(callback: types.CallbackQuery, state: FSMContext):
+    if state:
+        await state.clear()
+
+    await callback.message.delete()
+    await callback.answer()
 
 
 # Запуск процесса поллинга новых апдейтов
@@ -48,6 +62,7 @@ async def main():
         text="Lessons",
         web_app=web_app_info
     ))
+    dp.include_router(trains_router)
     await dp.start_polling(bot)
 
 

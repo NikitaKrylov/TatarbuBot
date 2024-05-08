@@ -23,7 +23,6 @@ class APIRepository:
 
 
 
-
     async def _post(self, path: str, data: Any, *args, **kwargs):
         logging.info(f"POST {path} data {data}")
         async with aiohttp.ClientSession(json_serialize=json.dumps) as session:
@@ -41,5 +40,8 @@ class APIRepository:
 
     async def get_user_by_tg_id(self, tg_user_id: int):
         return await self._get(f'/users/{tg_user_id}')
+
+    async def get_all_users(self):
+        return await self._get('/users/all')
 
 

@@ -20,7 +20,7 @@ services:
     image: postgres:latest
     env_file: ./api/db.env
     volumes:
-      - ./db-data:/var/lib/postgresql/data
+      - ./db-media:/var/lib/postgresql/media
     ports:
       - 5432:5432
 

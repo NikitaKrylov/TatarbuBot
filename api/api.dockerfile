@@ -6,6 +6,7 @@ COPY ./requirements.txt ./requirements.txt
 RUN pip install -r requirements.txt
 
 RUN mkdir -p ./logs
+RUN mkdir -p media/audio media/images
 
 COPY . .
 

@@ -130,8 +130,8 @@ dmypy.json
 cython_debug/
 
 # Static directories
-data/
-data/*
+media/
+media/*
 static/
 node_modules/
 **js/

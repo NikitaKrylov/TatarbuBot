@@ -1,0 +1,16 @@
+@import '../../assets/styles/global.scss';
+
+section {
+    padding-top: 22px;
+    max-width: 100%;
+    min-height: 100vh;
+}
+
+header {
+    font-size: 34px;
+    font-weight: medium;
+
+    span {
+        color: $regular-green;
+    }
+}

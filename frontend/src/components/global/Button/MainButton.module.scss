@@ -1,0 +1,20 @@
+@import '../../../assets/styles/global.scss';
+
+button {
+    min-width: 100%;
+    padding: 16px 87px;
+
+    background-color: $regular-green;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 4px $middle-green;
+
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+
+    // &:hover{
+    //     transform: translateY(4px);
+    //     box-shadow: 0 0;
+    // }
+}

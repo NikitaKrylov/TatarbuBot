@@ -1,3 +1,4 @@
+import MainButton from '../../global/Button/MainButton';
 import styles from './LessonBlock.module.scss'
 
 export default function LessonBlock(){
@@ -15,6 +16,7 @@ export default function LessonBlock(){
                         <p className={styles.p}>{nameLesson}</p>
                     </h3>
                 </div>
+                
             </section>
         </>
     )

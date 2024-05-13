@@ -41,4 +41,7 @@ body {
     background: $bg-color;
     font-family: 'Helvetica Neue', sans-serif;
     color: $main-black;
+    
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgray;
 }

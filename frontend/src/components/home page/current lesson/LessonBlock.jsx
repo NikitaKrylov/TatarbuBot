@@ -15,8 +15,16 @@ export default function LessonBlock(){
                         <p className={styles.p}>Урок {numLesson}</p> 
                         <p className={styles.p}>{nameLesson}</p>
                     </h3>
+                    <div className={styles.progress}> 
+                        {/* фн на проверку прогресса => добавить класс в зависимомти от этого */}
+                        <div className={styles.active}></div>
+                        <div className={styles.progressLine}></div>
+                        <div className={styles.progressLine}></div>
+                        <div className={styles.progressLine}></div>
+                        <div className={styles.progressLine}></div>
+                    </div>
+                    <MainButton text='Продолжить обучение'/>
                 </div>
-                
             </section>
         </>
     )

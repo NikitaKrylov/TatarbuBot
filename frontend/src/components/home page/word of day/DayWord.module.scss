@@ -1,12 +1,12 @@
 @import '../../../assets/styles/global.scss';
 
-section {
+.section {
     margin-top: 30px;
     max-width: 100%;
+    min-height: 162px;
     position: relative;
-
     
-    h2 {
+    .h2 {
         max-width: 135px;
         min-height: 68px;
         padding: 10px 20px;
@@ -17,12 +17,12 @@ section {
         font-weight: 500;
     }
 
-    div {
+    .div {
         position: absolute;
         top: 42px;
         min-width: 100%;
 
-        p{
+        .p{
             padding: 18px;
             background-color: #fff;
 

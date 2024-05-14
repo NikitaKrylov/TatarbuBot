@@ -37,11 +37,12 @@ $bg-color: rgba(243, 242, 240, 1);
 body {
     max-width: 390px;
     margin: 0 auto;
-    padding: 0 16px;
     background: $bg-color;
     font-family: 'Helvetica Neue', sans-serif;
     color: $main-black;
     
     border-left: 1px solid lightgrey;
     border-right: 1px solid lightgray;
+
+    position: relative;
 }

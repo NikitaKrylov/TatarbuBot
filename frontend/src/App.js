@@ -1,5 +1,5 @@
-import './assets/styles/global.scss'
-import Home from './pages/main/Home';
+import './assets/styles/global.scss';
+import Home from './pages/home/Home';
 
 export default function App() {
 

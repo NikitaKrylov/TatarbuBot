@@ -3,7 +3,7 @@ import '../../assets/styles/global.scss'
 import DayWord from '../../components/home page/word of day/DayWord'
 import LessonBlock from '../../components/home page/current lesson/LessonBlock'
 
-export default function Home ({name}){
+const Home = ({name}) => {
     return(
         <>
         <main className={styles.main}>
@@ -13,4 +13,5 @@ export default function Home ({name}){
         </main>
         </>
     )
-}
+};
+export default Home;

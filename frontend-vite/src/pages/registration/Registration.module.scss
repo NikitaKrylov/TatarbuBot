@@ -4,4 +4,17 @@
     padding: 38px 25px;
     min-height: 100vh;
     background-color: #fff;
+    position: relative;
+
+    form {
+        position: absolute;
+        top: 38px;
+        bottom: 38px;
+        right: 25px;
+        left: 25px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }

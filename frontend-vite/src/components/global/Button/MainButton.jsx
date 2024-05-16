@@ -3,19 +3,23 @@ import { useEffect, useState } from 'react';
 const MainButton = ({text, color})=>{
     const [maincolor, setMaincolor] = useState(null);
     const [backcolor, setBackcolor] = useState(null);
+    const [textcolor, setTextcolor] = useState(null);
     useEffect(()=> {
         switch (color){
             case "violet":
                 setMaincolor("#A247FB");
                 setBackcolor("#7721CC");
+                setTextcolor('white')
                 break;
             case "green":
                 setMaincolor("#29B393");
                 setBackcolor("#1E8970");
+                setTextcolor('white')
                 break;
             case "light_green":
                 setMaincolor("#69E1C5");
                 setBackcolor("#29B393");
+                setTextcolor('white')
                 break;
             }
     },[])
@@ -23,7 +27,8 @@ const MainButton = ({text, color})=>{
     console.log(maincolor)
     let colorized = {
         backgroundColor: maincolor,
-        boxShadow : `0 4px ${backcolor}`
+        boxShadow : `0 4px ${backcolor}`,
+        color: textcolor
     };
     return(
         <button className={styles.button} style={colorized}>

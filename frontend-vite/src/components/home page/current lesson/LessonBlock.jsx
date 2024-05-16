@@ -23,7 +23,7 @@ export default function LessonBlock(){
                         <div className={styles.progressLine}></div>
                         <div className={styles.progressLine}></div>
                     </div>
-                    <MainButton text='Продолжить обучение' color="violet"/>
+                    <MainButton text='Продолжить обучение' color='light_green'/>
                 </div>
             </section>
         </>

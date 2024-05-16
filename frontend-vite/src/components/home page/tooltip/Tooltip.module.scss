@@ -1,0 +1,16 @@
+@import '../../../assets/styles/global.scss';
+.tooltip{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 36px;
+    .text{
+        font-size: 20px;
+        font-weight: 400;
+    }
+    .icon{
+        width: 30px;
+        height: 30px;
+    }
+}

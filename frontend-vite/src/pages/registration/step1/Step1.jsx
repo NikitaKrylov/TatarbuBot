@@ -7,7 +7,7 @@ const Step1 = () => {
     <>
         <section className={styles.section}>
              <img className={styles.img} src="" alt="here is a mascot" />
-            <MainButton/>
+            <MainButton text={'Начать обучение'} color={'green'}/>
         </section>
     </>
   )

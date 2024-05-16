@@ -28,6 +28,11 @@ $light-gray: #f0f0f0;
 
 $bg-color: rgba(243, 242, 240, 1);
 
+@font-face {
+    font-family: Helvetica_Neue;
+    src: url('../font_style/ofont.ru_Helvetica\ Neue.ttf');
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -39,7 +44,7 @@ body {
     min-height: 100vh;
     margin: 0 auto;
     background: $bg-color;
-    font-family: 'Helvetica Neue', sans-serif;
+    font-family: 'Helvetica_Neue', sans-serif;
     color: $main-black;
     
     border-left: 1px solid lightgrey;

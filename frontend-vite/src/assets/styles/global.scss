@@ -36,6 +36,7 @@ $bg-color: rgba(243, 242, 240, 1);
 
 body {
     max-width: 390px;
+    min-height: 100vh;
     margin: 0 auto;
     background: $bg-color;
     font-family: 'Helvetica Neue', sans-serif;

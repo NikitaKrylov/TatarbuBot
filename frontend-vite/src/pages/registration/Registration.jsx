@@ -1,17 +1,12 @@
-import MainButton from '../../components/global/Button/MainButton';
 import styles from './Registration.module.scss'
-import { Route , Link, Outlet} from 'react-router-dom';
+import Step1 from './step1/Step1'
+import Step2 from './step2/Step2'
 
 export default function Registration(){
 
     return (
-        <>
-            <div>
-                <Link to='/btn'>button</Link>
-                <p> and </p>
-                <Link to='/btm'>bottom</Link>
-            </div>
-            <Outlet/>
-        </>
+        <section className={styles.section}> 
+            <Step2/>
+        </section>
     )
 }

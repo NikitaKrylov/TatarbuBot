@@ -1,0 +1,14 @@
+.section{
+    height: 500px;
+    max-width: 354px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.img {
+    margin: 0 auto;
+    background-color: lightgray;
+    max-width: 200px;
+    min-height: 200px;
+}

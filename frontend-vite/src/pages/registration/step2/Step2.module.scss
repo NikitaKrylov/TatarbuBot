@@ -1,0 +1,16 @@
+@import '../../../assets/styles/global.scss';
+
+.ul {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.lang {
+    padding: 16px;
+    background: $light-gray;
+    border-radius: 10px;
+    display: flex;
+    gap: 16px;
+}

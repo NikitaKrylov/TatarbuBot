@@ -31,3 +31,4 @@ class UserRepository(SQLAlchemyRepository):
         async with async_session() as session:
             await self.delete_object(session, self.model.tg_user_id == tg_user_id)
 
+

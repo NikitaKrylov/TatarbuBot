@@ -1,29 +1,17 @@
 import React from 'react'
 import cls from './Progressbar.module.scss'
 import speaking from '../../../assets/icons/normal/speaking.png'
-import arrow from '../../../assets/icons/normal/arrow_right.svg'
+import reading from '../../../assets/icons/normal/reading.png'
+import listening from '../../../assets/icons/normal/listening.png'
+import grammar from '../../../assets/icons/normal/grammar.png'
+import Block from './Block';
 const Progressbar =()=> {
   return (
     <div className={cls.progressbar}>
-        <div className={cls.block}>
-            <div className={cls.content}>
-                <div className={cls.icon}>
-                    <img src={speaking} alt='icon_block'/>
-                </div>
-                <div className={cls.block_name}>
-                    <span>Чтение</span>
-                </div>
-                <div className={cls.point_divider}></div>
-                <div className={cls.percent}>
-                    <span>23%</span>
-                </div>
-                
-            </div>
-            <div className={cls.block_arrow}>
-                <img src={arrow} alt='arrow'/>
-            </div>
-        </div>
-        
+       <Block text={'Говорение'} percent={65} icon={speaking}/>
+       <Block text={'Чтение'} percent={23} icon={reading}/>
+       <Block text={'Аудирование'} percent={48} icon={listening}/>
+       <Block text={'Грамматика'} percent={89} icon={grammar}/>
     </div>
   )
 };

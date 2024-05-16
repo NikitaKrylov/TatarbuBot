@@ -1,35 +1,37 @@
 @import '../../../assets/styles/global.scss';
 .progressbar{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 21px;
     padding-left: 16px;
     padding-top: 16px;
     padding-bottom: 16px;
     padding-right: 24px;
     background-color: #FFFF;
     border-radius: 20px;
-    .block{
+    margin-bottom: 30px;
+}
+.block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .content{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
         align-items: center;
-        .content{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            gap:12px;
-            .icon{
-                padding: 9px;
-                border-radius: 14px;
-                background-color: #F0F0F0;
-            }
-            .point_divider{
-                width: 4px;
-                height: 4px;
-                background-color: $main-black;
-                border-radius: 50%;
-            }
-            .percent{
-
-            }
+        gap:12px;
+        .icon{
+            padding: 9px;
+            border-radius: 14px;
+            background-color: #F0F0F0;
+        }
+        .point_divider{
+            width: 4px;
+            height: 4px;
+            background-color: $main-black;
+            border-radius: 50%;
         }
     }
 }

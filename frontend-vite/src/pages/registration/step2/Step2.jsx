@@ -38,7 +38,7 @@ const Step2 = () => {
             <li>
                 <input type="radio" id='brazil' />
                 <label className={styles.lang} htmlFor="brazil">
-                    <img src={flagBr}></img>
+                    <img src={flagBr} alt='photo'></img>
                     <p>Brazil</p>
                 </label>
             </li>

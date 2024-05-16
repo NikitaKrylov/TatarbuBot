@@ -1,9 +1,9 @@
 from src.database.db import async_session
 from src.repository.base_sqlalchemy import SQLAlchemyRepository
-from src.database.models import Quiz, QuizAnswer, UserAnswer
+from src.database.models import Quiz, QuizAnswer, UserAnswer, QuizType
 from src.schemas.quizzes import QuizCreateDTO, AnswerCreateDTO, AnswerOutDTO, QuizOutDTO, UserAnswerCreateDTO, \
     UserAnswerOutDTO
-from sqlalchemy import select, update
+from sqlalchemy import select, update, func, text
 from starlette import status
 from src.services.media import save_audio, save_image, delete_file
 
@@ -82,7 +82,6 @@ class QuizRepository(SQLAlchemyRepository):
 class AnswerRepository(SQLAlchemyRepository):
     model = QuizAnswer
 
-
     async def get_by_id(self, _id: int) -> AnswerOutDTO | None:
         async with async_session() as session:
             return await self.get_object(
@@ -90,7 +89,6 @@ class AnswerRepository(SQLAlchemyRepository):
                 self.model.id == _id,
                 AnswerOutDTO
             )
-
 
     async def set_answer_image(self, answer_id: int, file) -> None:
         answer_db = await self.get_by_id(answer_id)
@@ -127,7 +125,6 @@ class AnswerRepository(SQLAlchemyRepository):
             await session.commit()
 
 
-
 class UserAnswerRepository(SQLAlchemyRepository):
     model = UserAnswer
 
@@ -140,9 +137,12 @@ class UserAnswerRepository(SQLAlchemyRepository):
 
             return await self._get_by_id(session, _obj.id)
 
-    async def _get_by_id(self, session,  _id: int):
-        query = select(UserAnswer.id, UserAnswer.quiz_id, UserAnswer.answer_id, UserAnswer.created_at,
-                       QuizAnswer.is_correct).join(QuizAnswer, QuizAnswer.id == UserAnswer.answer_id)
+    async def _get_by_id(self, session, _id: int):
+        query = (
+            select(UserAnswer.id, UserAnswer.quiz_id, UserAnswer.answer_id, UserAnswer.created_at, QuizAnswer.is_correct, Quiz.quiz_type, UserAnswer.user_id)
+            .join(QuizAnswer, QuizAnswer.id == UserAnswer.answer_id)
+            .join(Quiz, Quiz.id == UserAnswer.quiz_id)
+        ).where(UserAnswer.id == _id)
         result = (await session.execute(query)).fetchone()
 
         if not result:
@@ -154,14 +154,32 @@ class UserAnswerRepository(SQLAlchemyRepository):
             answer_id=result[2],
             created_at=result[3],
             is_correct=result[4],
+            quiz_type=result[5],
+            user_id=result[6],
         )
 
     async def get_by_id(self, _id: int):
         async with async_session() as session:
             return await self._get_by_id(session, _id)
 
-
-
+    async def get_answers_statistic(self, tg_user_id: int, quiz_type: QuizType | None = None):
+        async with async_session() as session:
+            # query = (
+            #     select(Quiz.quiz_type, func.count(QuizAnswer.is_correct)).select_from(UserAnswer)
+            #     .join(QuizAnswer, QuizAnswer.id == UserAnswer.answer_id)
+            #     .join(Quiz, Quiz.id == UserAnswer.quiz_id)
+            #     .group_by(Quiz.quiz_type)
+            #     .where(UserAnswer.user_id == tg_user_id)
+            # )
+            # 'SUM(CASE WHEN quiz_answers.is_correct THEN 1 ELSE 0 END) * 100.0 / COUNT(*)'
+            query = f"""SELECT quizzes.quiz_type, SUM(CASE WHEN quiz_answers.is_correct THEN 1 ELSE 0 END) * 100.0 / COUNT(*) FROM user_answers
+                join quizzes on quizzes.id = user_answers.quiz_id
+                join quiz_answers on quiz_answers.id = user_answers.answer_id
+                WHERE user_answers.user_id = {tg_user_id}
+                GROUP BY quizzes.quiz_type
+                """
+            result = await session.execute(text(query))
+            return {i[0]: i[1] for i in result.all()}
 
 
 

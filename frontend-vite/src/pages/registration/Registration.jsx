@@ -7,6 +7,7 @@ import Step5 from './step5/Step5'
 import Step6 from './step6/Step6'
 import Step7 from './step7/Step7'
 
+
 export default function Registration(){
 
     return (

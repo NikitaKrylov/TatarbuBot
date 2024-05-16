@@ -58,4 +58,9 @@ async def change_quiz_answer_audio(quiz_id: int, answer_id: int, file: UploadFil
     await answers_repository.set_answer_audio(answer_id, file)
 
 
+@router.get('/answers/stats')
+async def get_answers_stats(tg_user_id: int):
+    return await user_answers_repository.get_answers_statistic(tg_user_id)
+
+
 

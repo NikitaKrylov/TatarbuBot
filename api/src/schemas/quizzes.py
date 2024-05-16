@@ -2,6 +2,8 @@ from datetime import datetime
 
 from pydantic import BaseModel
 
+from src.database.models import QuizType
+
 
 class BaseAnswerDTO(BaseModel):
 
@@ -27,6 +29,7 @@ class BaseQuizDTO(BaseModel):
     image: str | None
     audio: str | None
     explanation: str | None
+    quiz_type: QuizType
 
 
 class QuizCreateDTO(BaseQuizDTO):
@@ -41,6 +44,7 @@ class QuizOutDTO(BaseQuizDTO):
 class BaseUserAnswerDTO(BaseModel):
     quiz_id: int
     answer_id: int
+    user_id: int
 
 
 class UserAnswerCreateDTO(BaseUserAnswerDTO):
@@ -50,6 +54,7 @@ class UserAnswerCreateDTO(BaseUserAnswerDTO):
 class UserAnswerOutDTO(BaseUserAnswerDTO):
     created_at: datetime
     is_correct: bool
+    quiz_type: QuizType
 
 
 

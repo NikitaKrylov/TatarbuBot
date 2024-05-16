@@ -6,7 +6,9 @@ import styles from './Step2.module.scss'
 import flagRu from '../../../assets/icons/normal/Flag_Russia.svg'
 import flagBr from '../../../assets/icons/normal/flag_Brazil.svg'
 import flagGe from '../../../assets/icons/normal/Flag_Georgia.svg'
+
 import MainButton from '../../../components/global/Button/MainButton'
+
 
 const Step2 = () => {
 
@@ -26,6 +28,7 @@ const Step2 = () => {
     ]
   return (
     <>
+
         <div>
             <StepsLine/>
             <Topic 
@@ -58,6 +61,7 @@ const Step2 = () => {
         </div>
         
         <MainButton text={'Дальше'} color={'light_green'}/>
+
     </>
   )
 }

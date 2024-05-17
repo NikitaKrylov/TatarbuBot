@@ -83,3 +83,6 @@ services:
       dockerfile: bot.dockerfile
     depends_on:
       - tg-bot
+volumes:
+  caddy_data:
+  caddy_config:

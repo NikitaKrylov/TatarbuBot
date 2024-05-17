@@ -8,7 +8,7 @@ import easy from '../../../assets/icons/easy.svg'
 import middle from '../../../assets/icons/middle.svg'
 import hard from '../../../assets/icons/hard.svg'
 
-const Step6 = () => {
+const Step6 = ({onClick}) => {
   return (
     <>
         <section>
@@ -46,8 +46,10 @@ const Step6 = () => {
                 </label>
             </div>
         </section>
+        <button onClick={onClick}>
+          <MainButton text={'Начать обучение'} color={'light_green'}/>
+        </button>
         
-        <MainButton text={'Начать обучение'} color={'light_green'}/>
     </>
   )
 }

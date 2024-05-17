@@ -4,6 +4,7 @@ const MainButton = ({text, color})=>{
     const [maincolor, setMaincolor] = useState(null);
     const [backcolor, setBackcolor] = useState(null);
     const [textcolor, setTextcolor] = useState(null);
+    const [fontweig, setFontweig] = useState("700");
     useEffect(()=> {
         switch (color){
             case "violet":
@@ -21,14 +22,20 @@ const MainButton = ({text, color})=>{
                 setBackcolor("#29B393");
                 setTextcolor('white')
                 break;
+            
+            case "white":
+                setMaincolor("#FFFFFF");
+                setBackcolor("#D1D1D1");
+                setTextcolor("#1E1E1E");
+                setFontweig("400");
+                break;
             }
     },[])
-    
-    console.log(maincolor)
     let colorized = {
         backgroundColor: maincolor,
         boxShadow : `0 4px ${backcolor}`,
-        color: textcolor
+        color: textcolor,
+        fontWeight:fontweig,
     };
     return(
         <button className={styles.button} style={colorized}>

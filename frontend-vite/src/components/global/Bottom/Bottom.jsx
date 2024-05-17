@@ -10,7 +10,7 @@ import profile_active from '../../../assets/icons/active/profile.svg'
 import { useEffect, useState } from 'react'
 
 export default function Bottom (){
-    const [page, setPage] = useState();
+    const [page, setPage] = useState('home');
     const [home,setHome] = useState(home_normal);
     const [explore,setExplore] = useState(explore_normal);
     const [interesting,setInteresting] = useState(interesting_normal);

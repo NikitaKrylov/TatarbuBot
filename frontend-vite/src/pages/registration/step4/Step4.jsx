@@ -5,7 +5,7 @@ import styles from './Step4.module.scss'
 
 import MainButton from '../../../components/global/Button/MainButton'
 
-const Step4 = () => {
+const Step4 = ({onClick}) => {
   return (
     <>
         <section>
@@ -31,8 +31,9 @@ const Step4 = () => {
                 </label>
             </div>
         </section>
-        
-        <MainButton text={'Дальше'} color={'light_green'}/>
+        <button onClick={onClick}>
+          <MainButton text={'Дальше'} color={'light_green'}/>
+        </button>
     </>
   )
 }

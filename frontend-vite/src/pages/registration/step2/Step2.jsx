@@ -10,7 +10,7 @@ import flagGe from '../../../assets/icons/normal/Flag_Georgia.svg'
 import MainButton from '../../../components/global/Button/MainButton'
 
 
-const Step2 = () => {
+const Step2 = ({onClick}) => {
 
     let flags = [
         {
@@ -59,8 +59,8 @@ const Step2 = () => {
                 </li>
             </ul>
         </div>
+        <button onClick={onClick}><MainButton text={'Дальше'} color={'light_green'}/></button>
         
-        <MainButton text={'Дальше'} color={'light_green'}/>
 
     </>
   )

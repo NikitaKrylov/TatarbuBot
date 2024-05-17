@@ -1,10 +1,10 @@
 {$DOMAIN} {
+	encode gzip
 	handle /api/* {
 		reverse_proxy api:8000
 	}
 	handle {
 		root * /app/dist
-  		encode gzip
 		try_files {path} /index.html
 		file_server
 	}

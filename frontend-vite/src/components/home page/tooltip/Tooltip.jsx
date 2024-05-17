@@ -4,7 +4,7 @@ import active_icon from '../../../assets/icons/active/Explain.svg'
 import normal_icon from '../../../assets/icons/normal/Explain.svg'
 import { useState } from 'react'
 const Tooltip = ()=> {
-    const [status, setStatus] = useState(false);
+    const [status, setStatus] = useState(true);
     return (
         <div className={cls.tooltip}>
             <div className={cls.text}>

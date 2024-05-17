@@ -9,7 +9,7 @@ import palette from '../../../assets/icons/Artist_Palette.svg'
 import soccer from '../../../assets/icons/Soccer_Ball.svg'
 import food from '../../../assets/icons/Pot_Of_Food.svg'
 
-const Step3 = () => {
+const Step3 = ({onClick}) => {
   return (
     <>
         <section>
@@ -44,10 +44,11 @@ const Step3 = () => {
                 </label>
             </div>
         </section>
-        
-        <MainButton text={'Дальше'} color={'light_green'}/>
+        <button onClick={onClick}>
+          <MainButton text={'Дальше'} color={'light_green'}/>
+        </button>
     </>
   )
 }
 
-export default Step3
+export default Step3;

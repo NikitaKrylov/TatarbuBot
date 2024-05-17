@@ -11,9 +11,19 @@ const routes = createBrowserRouter([
   {
     path:'/reg',
     element: <Registration/>
-  }
-  
-  
+  },
+  // {
+  //   path:'/explore',
+  //   element:<Explore/>
+  // },
+  // {
+  //   path: '/interesting',
+  //   element:<Dictionary />
+  // },
+  // {
+  //   path: '/profile',
+  //   element:<Profile/>
+  // }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

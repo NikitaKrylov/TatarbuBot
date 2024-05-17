@@ -1,5 +1,5 @@
 FROM node:20-alpine as builder
-WORKDIR /app
+WORKDIR /frontend-vite
 COPY package.json .
 COPY package-lock.json .
 RUN npm install

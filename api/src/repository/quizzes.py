@@ -164,14 +164,6 @@ class UserAnswerRepository(SQLAlchemyRepository):
 
     async def get_answers_statistic(self, tg_user_id: int, quiz_type: QuizType | None = None):
         async with async_session() as session:
-            # query = (
-            #     select(Quiz.quiz_type, func.count(QuizAnswer.is_correct)).select_from(UserAnswer)
-            #     .join(QuizAnswer, QuizAnswer.id == UserAnswer.answer_id)
-            #     .join(Quiz, Quiz.id == UserAnswer.quiz_id)
-            #     .group_by(Quiz.quiz_type)
-            #     .where(UserAnswer.user_id == tg_user_id)
-            # )
-            # 'SUM(CASE WHEN quiz_answers.is_correct THEN 1 ELSE 0 END) * 100.0 / COUNT(*)'
             query = f"""SELECT quizzes.quiz_type, SUM(CASE WHEN quiz_answers.is_correct THEN 1 ELSE 0 END) * 100.0 / COUNT(*) FROM user_answers
                 join quizzes on quizzes.id = user_answers.quiz_id
                 join quiz_answers on quiz_answers.id = user_answers.answer_id

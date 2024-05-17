@@ -1,6 +1,15 @@
 version: '3.9'
 
 services:
+  frontend:
+    build: ./frontend-vite
+    expose: [ 3000 ]
+    restart: unless-stopped
+    init: true
+    env_file: [.env]
+    ports:
+      - 443:443
+      - 80:80
 
   redis:
     container_name: redis
@@ -67,3 +76,6 @@ services:
       dockerfile: bot.dockerfile
     depends_on:
       - tg-bot
+volumes:
+  caddy_data:
+  caddy_config:

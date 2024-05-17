@@ -25,9 +25,9 @@ def test_task():
 
 
 app.conf.beat_schedule = {
-    'add-every-30-seconds': {
+    'add-every-150-seconds': {
         'task': 'src.workers.app.test_task',
-        'schedule': 10.0
+        'schedule': 150.0
     },
 }
 app.conf.timezone = 'UTC'

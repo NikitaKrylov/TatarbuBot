@@ -10,6 +10,7 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_data:/data
       - caddy_config:/config
+      - dist:/app/dist
     env_file: [ .env ]
 
   frontend:
@@ -17,6 +18,8 @@ services:
     expose: [ 3000 ]
     restart: unless-stopped
     init: true
+    volumes:
+      - dist:/app/dist
 
   redis:
     container_name: redis
@@ -86,3 +89,4 @@ services:
 volumes:
   caddy_data:
   caddy_config:
+  dist:

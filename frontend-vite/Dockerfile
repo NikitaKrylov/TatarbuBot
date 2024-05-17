@@ -8,7 +8,7 @@ RUN npm run build
 
 FROM node:20-alpine as production
 WORKDIR /frontend-vite
-COPY --from=builder /frontend-vite/dist ./dist
-COPY --from=builder /frontend-vite/node_modules ./node_modules
+COPY --from=builder /dist ./dist
+COPY --from=builder /node_modules ./node_modules
 COPY package.json .
 CMD ["node", "./dist"]

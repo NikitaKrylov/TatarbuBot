@@ -1,22 +1,15 @@
 version: '3.9'
 
 services:
-  proxy:
-    image: caddy:2-alpine
-    restart: always
-    cap_add: [ NET_ADMIN ]
-    ports: [ 80:80, 443:443 ]
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data
-      - caddy_config:/config
-    env_file: [ .env ]
-
   frontend:
     build: ./frontend-vite
     expose: [ 3000 ]
     restart: unless-stopped
     init: true
+    env_file: [.env]
+    ports:
+      - 443:443
+      - 80:80
 
   redis:
     container_name: redis

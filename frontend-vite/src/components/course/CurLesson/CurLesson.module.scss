@@ -1,0 +1,44 @@
+@import '../../../assets/styles/global.scss';
+
+.section{
+    max-width: 100%;
+
+    background: linear-gradient(123.99deg, #7DFFE1 -128.6%, #14735D 96.11%);
+    color: #fff;
+    overflow: hidden;
+    border-radius: 20px;
+    .ornament{
+        position: absolute;
+        left: 85%;
+        bottom: 92%;
+        width: 73px;
+        height: 72px;
+    }
+    .h2{
+        font-size: 16px;
+        font-weight: 500;
+        color: $light-gray;
+        padding-top: 18px;
+        padding-left: 18px;
+        opacity: 70%;
+
+    }
+
+    .div{
+        margin-top: 4px;
+        padding-left: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        h3{
+            text-wrap: wrap;
+            font-weight: 600;
+            margin-bottom: 32px;
+            font-size: 20px;
+            line-height: 120%;
+        }
+        .lines{
+            margin-bottom: 16px;
+        }
+    }
+}

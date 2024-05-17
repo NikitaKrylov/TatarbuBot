@@ -1,0 +1,50 @@
+@import '../../../../assets/styles/global.scss';
+
+.mainBlock {
+    position: relative;
+    height: 100vh;
+    background-color: #fff;
+}
+
+.section {
+    padding: 38px 18px;
+    
+    h5{
+        font-size: 24px;
+        font-weight: 600;
+        margin: 34px 0;
+    }
+
+    figure {
+
+        img {
+            min-width: 100%;
+            background-color: $light-gray;
+            min-height: 236px;
+            border-radius: 10px;
+        }
+
+        figcaption {
+            margin-top: 12px;
+            
+            color: $third-black;
+            font-size: 16px;
+            text-align: center;
+        }
+    }
+
+    .question {
+        margin-top: 55px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+
+        input {
+            max-width: 22%;
+            min-height: 44px;
+            background-color: $light-gray;
+            border-radius: 10px;
+        }
+    }
+}

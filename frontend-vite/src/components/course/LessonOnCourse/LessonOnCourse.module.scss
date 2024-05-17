@@ -1,0 +1,50 @@
+@import '../../../assets/styles/global.scss';
+.lesson{
+    width: 100%;
+    max-height: 238px;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: $white;
+    gap:16px;
+    .title{
+        display: flex;
+        flex-direction: column;
+        .numlesson{
+            font-weight: 400;
+            font-size: 16px;
+        }
+        .num{
+            font-weight: 600;
+            font-size: 18px;
+
+        }
+    }
+    .content{
+        display: flex;
+        flex-direction: row;
+        gap:20px;
+        .photo{
+            width: 140px;
+            height: 140px;
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .rightside{
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap:10px;
+            .btn{
+                width: 140px;
+                height: 30px;
+                padding:6px, 16px, 6px, 16px;
+                border-radius: 10px;
+                justify-self: end;
+            }
+        }
+    }
+}

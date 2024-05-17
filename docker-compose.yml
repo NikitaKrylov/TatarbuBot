@@ -10,6 +10,9 @@ services:
     ports:
       - 443:443
       - 80:80
+      volumes:
+      - caddy_data:/data
+      - caddy_config:/config
 
   redis:
     container_name: redis

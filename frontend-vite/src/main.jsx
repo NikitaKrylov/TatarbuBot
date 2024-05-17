@@ -38,7 +38,7 @@ const routes = createBrowserRouter([
   //   path: '/profile',
   //   element:<Profile/>
   // }
-
+  {
     path:"/course",
     element: <Course/>
   }

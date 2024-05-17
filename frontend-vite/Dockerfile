@@ -1,5 +1,5 @@
 FROM node:20-alpine as builder
-WORKDIR /frontend-vite
+WORKDIR /app
 COPY package.json .
 COPY package-lock.json .
 RUN npm install
@@ -7,8 +7,8 @@ COPY . .
 RUN npm run build
 
 FROM node:20-alpine as production
-WORKDIR /frontend-vite
-COPY --from=builder /dist ./dist
-COPY --from=builder /node_modules ./node_modules
+WORKDIR /app
+COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/node_modules ./node_modules
 COPY package.json .
 CMD ["node", "./dist"]

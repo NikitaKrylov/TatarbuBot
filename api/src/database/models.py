@@ -53,7 +53,7 @@ class UserAnswer(Base):
     quiz_id: Mapped[int] = mapped_column(ForeignKey('quizzes.id', ondelete='SET NULL'), nullable=True)
     answer_id: Mapped[int] = mapped_column(ForeignKey('quiz_answers.id', ondelete='SET NULL'), nullable=True)
     is_correct: Mapped[bool]
-    quiz_type: Mapped[QuizType]
+    quiz_type: Mapped[str]
     created_at: Mapped[datetime] = mapped_column(default=datetime.now)
 
 

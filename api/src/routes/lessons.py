@@ -16,7 +16,7 @@ async def get_all_lessons():
     return await repository.all()
 
 
-@router.post('/{lesson_id}', response_model=LessonOutDTO | None)
+@router.get('/{lesson_id}', response_model=LessonOutDTO | None)
 async def get_lesson(lesson_id: int):
     return await repository.get_by_id(lesson_id)
 

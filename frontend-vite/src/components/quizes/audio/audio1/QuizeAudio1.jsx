@@ -12,14 +12,14 @@ const QuizeAudio1 = () => {
     <>
       <main className={styles.mainBlock}>
         <section className={styles.section}>
-            <StepsLine/>
+            <StepsLine count={5}/>
             <h5>{question}</h5>
             <figure>
               <img onClick={() => alert('click')} src={url} alt="рисунок Белема" />
               <figcaption>Нажмите, чтобы прослушать</figcaption>
             </figure>
         </section>
-        <QuizeBottom/>
+        <QuizeBottom numquestion={1}/>
       </main>
     </>
   )

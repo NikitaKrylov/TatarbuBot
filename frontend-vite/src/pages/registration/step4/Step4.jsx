@@ -9,7 +9,7 @@ const Step4 = ({onClick}) => {
   return (
     <>
         <section>
-            <StepsLine/>
+            <StepsLine count={4}/>
             <Topic
                 h1='Расскажи, почему ты хочешь изучать татарский язык?'
                 description='Так, мы сможем подобрать уроки, максимально соответствующие твоей цели'

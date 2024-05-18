@@ -26,7 +26,7 @@ const QuizeAudio2 = () => {
               <label htmlFor="">Ничек син дус?</label>
             </div>
         </section>
-        <QuizeBottom/>
+        <QuizeBottom numquestion={2}/>
       </main>
     </>
   )

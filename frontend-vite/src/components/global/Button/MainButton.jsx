@@ -1,6 +1,6 @@
 import styles from './MainButton.module.scss'
 import { useEffect, useState } from 'react';
-const MainButton = ({text, color})=>{
+const MainButton = ({text, color, onClick})=>{
     const [maincolor, setMaincolor] = useState(null);
     const [backcolor, setBackcolor] = useState(null);
     const [textcolor, setTextcolor] = useState(null);
@@ -38,7 +38,7 @@ const MainButton = ({text, color})=>{
         fontWeight:fontweig,
     };
     return(
-        <button className={styles.button} style={colorized}>
+        <button className={styles.button} style={colorized} onClick={onClick}>
             {text}
         </button>
     )

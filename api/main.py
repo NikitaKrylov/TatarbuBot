@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from src.routes.users import router as users_router
 from src.routes.quizzes import router as quiz_router
+from src.routes.lessons import router as lessons_router
 from src.routes.words import router as words_router
 from src.database.db import init_models
 from fastapi import FastAPI
@@ -43,6 +44,7 @@ app.mount("/media", StaticFiles(directory="media/"), name="media")
 app.include_router(users_router)
 app.include_router(quiz_router)
 app.include_router(words_router)
+app.include_router(lessons_router)
 
 if __name__ == '__main__':
     uvicorn.run(app, host='0.0.0.0', port=8000)

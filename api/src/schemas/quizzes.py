@@ -1,9 +1,5 @@
 from datetime import datetime
-
 from pydantic import BaseModel
-
-from src.database.models import QuizType
-
 
 class BaseAnswerDTO(BaseModel):
 
@@ -27,8 +23,9 @@ class BaseQuizDTO(BaseModel):
     use_audio_answer: bool
     image: str | None
     audio: str | None
+    lesson_id: int | None
     explanation: str | None
-    quiz_type: QuizType
+    quiz_type: str
 
 
 class QuizCreateDTO(BaseQuizDTO):

@@ -8,6 +8,7 @@ import interesting_active from '../../../assets/icons/active/interesting.svg'
 import profile_normal from '../../../assets/icons/normal/profile.svg'
 import profile_active from '../../../assets/icons/active/profile.svg'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function Bottom (){
     const [page, setPage] = useState('home');
@@ -15,7 +16,7 @@ export default function Bottom (){
     const [explore,setExplore] = useState(explore_normal);
     const [interesting,setInteresting] = useState(interesting_normal);
     const [profile,setProfile] = useState(profile_normal)
-    
+    const navigate = useNavigate();
     useEffect(()=>{
         switch(page){
             case "home":
@@ -47,7 +48,7 @@ export default function Bottom (){
     
     return (
         <bottom className={styles.bottom}>
-            <a href="#" onClick={()=>setPage('home')}><img src={home} alt="home" /></a>
+            <a href="#" onClick={()=>{setPage('home');navigate('/');}}><img src={home} alt="home" /></a>
             <a href="#" onClick={()=>setPage('explore')}><img src={explore} alt="explore" /></a>
             <a href="#" onClick={()=>setPage('interesting')}><img src={interesting} alt="interesting" /></a>
             <a href="#" onClick={()=>setPage('profile')}><img src={profile} alt="profile" /></a>

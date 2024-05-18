@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import cls from './LessonOnCourse.module.scss'
-const LessonOnCourse=({nummmer,photo,name,knowledge,completed})=> {
+const LessonOnCourse=({nummmer,photo,name,knowledge,completed,nav_to})=> {
   const [maincolor, setMaincolor] = useState(null);
   const [backcolor, setBackcolor] = useState(null);
   const [txt, setText] = useState(null);

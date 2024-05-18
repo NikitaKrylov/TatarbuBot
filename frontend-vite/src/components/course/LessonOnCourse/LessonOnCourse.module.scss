@@ -15,7 +15,7 @@
             font-weight: 400;
             font-size: 16px;
         }
-        .num{
+        .name{
             font-weight: 600;
             font-size: 18px;
 
@@ -28,6 +28,8 @@
         .photo{
             width: 140px;
             height: 140px;
+            border-radius: 12px;
+            overflow: hidden;
             img{
                 width: 100%;
                 height: 100%;
@@ -37,13 +39,15 @@
             display: flex;
             flex: 1;
             flex-direction: column;
-            gap:10px;
+            .knowns{
+                margin-top: 16px;
+            }
             .btn{
                 width: 140px;
                 height: 30px;
-                padding:6px, 16px, 6px, 16px;
+                padding:6px 16px 6px 16px;
                 border-radius: 10px;
-                justify-self: end;
+                margin-top: 20px;
             }
         }
     }

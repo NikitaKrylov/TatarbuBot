@@ -1,0 +1,37 @@
+@import '../../../assets/styles/global.scss';
+.courseprogress{
+    height: 45px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 45px;
+    margin-bottom: 24px;
+    padding-left: 9px;
+    padding-right: 9px;
+    align-items: center;
+    gap:45px;
+    .curChapter{
+        display: flex;
+        flex-direction: column;
+        gap:2px;
+        .num{
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 19.09px;
+        }
+        .name{
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 24.42px;
+        }
+    }
+    .progres{
+        span{
+            font-size: 12px;
+            font-weight: 400;
+            color: $regular-purple;
+        }
+        
+    }
+    
+}

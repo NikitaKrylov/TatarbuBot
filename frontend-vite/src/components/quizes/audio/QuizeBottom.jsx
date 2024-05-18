@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './QuizeBottom.module.scss';
 import axios from "axios";
 
-const QuizeBottom = ({ numquestion }) => {
+const QuizeBottom = ({ numquestion, onClick}) => {
   const [button1Color, setButton1Color] = useState(null);
   const [button2Color, setButton2Color] = useState(null);
 
@@ -33,9 +33,11 @@ const QuizeBottom = ({ numquestion }) => {
 
   let correct = answers?.filter((ans) => ans.is_correct === true)[0];
 
+
+
+  let userAns = ''
   const handleButtonClick = (e) => {
-    e.stopPropagation();
-    let userAns = e.target.value;
+     userAns = e.target.value;
 
     if (userAns === correct?.text) {
       setButton1Color('#29B393');
@@ -56,16 +58,18 @@ const QuizeBottom = ({ numquestion }) => {
     color: button2Color ? 'white' : 'black',
   };
 
-  return (
-    <div className={styles.bottom}>
-      <button onClick={(e) => handleButtonClick(e)} style={button1Style} value={text1}>
-        {text1}
-      </button>
-      <button onClick={(e) => handleButtonClick(e)} style={button2Style} value={text2}>
-        {text2}
-      </button>
-    </div>
-  );
+
+    return (
+      <div className={styles.bottom}>
+      <button onClick={(e) => {handleButtonClick(e); onClick(text1)}} style={button1Style} value={text1}>
+          {text1}
+        </button>
+    <button onClick={(e) => {handleButtonClick(e); onClick(text2)}} style={button2Style} value={text2}>
+          {text2}
+        </button>
+      </div>
+    );
+  
 };
 
 export default QuizeBottom;

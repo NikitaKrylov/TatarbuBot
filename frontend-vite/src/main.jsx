@@ -19,11 +19,11 @@ const routes = createBrowserRouter([
     element: <Registration/>
   },
   {
-    path:'/course/quize1',
+    path:'/course/lesson1',
     element: <QuizeAudio1/>
   },
   {
-    path:'/course/quize2',
+    path:'/course/lesson2',
     element: <QuizeAudio2/>
   },
   // {

@@ -33,7 +33,7 @@
         }
     }
 
-    .question {
+    .questionTatar {
         margin-top: 55px;
         display: flex;
         align-items: center;
@@ -41,7 +41,9 @@
         gap: 12px;
 
         input {
-            max-width: 22%;
+            text-align: center;
+            padding: 8px 12px;
+            width: 140px;
             min-height: 44px;
             background-color: $light-gray;
             border-radius: 10px;

@@ -2,7 +2,7 @@ import asyncio
 import logging
 from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters.command import CommandStart, Command
-from aiogram.types.web_app_main import WebAppInfo
+from aiogram.types.web_app_info import WebAppInfo
 from aiogram.types.menu_button_web_app import MenuButtonWebApp
 from aiogram.types.inline_keyboard_button import InlineKeyboardButton
 from aiogram.types.inline_keyboard_markup import InlineKeyboardMarkup

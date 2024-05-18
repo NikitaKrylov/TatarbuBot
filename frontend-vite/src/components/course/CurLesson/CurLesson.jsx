@@ -18,7 +18,7 @@ const CurLesson=()=>{
                         <p className={cls.p}>Путешествие<br/>в татарский эпос</p>
                     </h3>
                     <div className={cls.lines}>
-                        <StepsLine/>
+                        <StepsLine count={5}/>
                     </div>
                     
                 </div>

@@ -6,9 +6,8 @@ class Config(BaseSettings):
     api_url: str
     web_app_base_url: str
 
-
-class WebAppRoutesConfig(BaseSettings):
-    web_app_base_url: str
+    def reg_route(self):
+        return self.web_app_base_url + '/reg'
 
     def main_route(self):
         # TODO rewrite main_route
@@ -32,4 +31,3 @@ class WebAppRoutesConfig(BaseSettings):
 
 
 config = Config(_env_file='bot.env')
-

@@ -28,12 +28,11 @@ class QuizRepository(SQLAlchemyRepository):
             print(_quiz_db)
             return QuizOutDTO.model_validate(_quiz_db, from_attributes=True)
 
-    async def get_all(self):
+    async def get_all(self, offset: int, limit: int) -> list[QuizOutDTO]:
         async with async_session() as session:
-            return await self.get_all_objects(
-                session,
-                QuizOutDTO
-            )
+            select_query = select(Quiz).offset(offset).limit(limit)
+            result = (await session.execute(select_query)).scalars().all()
+            return [QuizOutDTO.model_validate(i, from_attributes=True) for i in result]
 
     async def delete(self, _id: int):
         async with async_session() as session:

@@ -29,10 +29,11 @@ services:
 
   db:
     container_name: db
+    restart: unless-stopped
     image: postgres:latest
     env_file: ./api/db.env
     volumes:
-      - ./db-media:/var/lib/postgresql/media
+      - ./db-data:/var/lib/postgresql/data
     ports:
       - 5432:5432
 

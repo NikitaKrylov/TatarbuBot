@@ -1,23 +1,32 @@
 @import '../../../assets/styles/global.scss';
 
 .ul {
-    margin-top: 48px;
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .lang {
+    padding: 16px;
+    background: $light-gray;
+    border-radius: 10px;
     display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-    .lang {
-        padding: 16px;
-        background: $light-gray;
-        border-radius: 10px;
-        display: flex;
-        gap: 16px;
-        font-weight: 500;
-
-        p{
-            font-weight: 500;
-            font-size: 18px;
-        }
+    gap: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: border-color 0.3s, background-color 0.3s;
+    
+    &:hover {
+      border-color: #ccc;
     }
 
+    &.selected {
+      background-color: #C0F8EB;
+    }
+
+    p {
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
 }

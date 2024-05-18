@@ -6,8 +6,11 @@ import Tooltip from '../../components/home page/tooltip/Tooltip'
 import Progressbar from '../../components/home page/progressbar/Progressbar'
 import Bottom from '../../components/global/Bottom/Bottom.jsx'
 const Home = () => {
-    // const tg = window.Telegram.WebApp;
-    // let name = tg.initDataUnsafe.user.first_name;
+    const tg = window.Telegram.WebApp;
+    let name = tg.initDataUnsafe.user.first_name;
+
+    tg.expand()
+
     return(
         <>
         <main className={styles.main}>
@@ -16,7 +19,6 @@ const Home = () => {
             <LessonBlock/>
             <Tooltip />
             <Progressbar/>
-            
         </main>
         <Bottom/>
         </>

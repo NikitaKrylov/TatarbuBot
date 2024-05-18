@@ -3,6 +3,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import ForeignKey, BigInteger
 from src.database.db import Base
 from enum import Enum
+from src.schemas.lessons import LessonProcessStatus
 
 
 class User(Base):
@@ -25,12 +26,13 @@ class Quiz(Base):
     __tablename__ = 'quizzes'
 
     name: Mapped[str]
-    quiz_type: Mapped[QuizType]
+    quiz_type: Mapped[str]
     image: Mapped[str | None] = mapped_column(nullable=True, default=None)
     audio: Mapped[str | None] = mapped_column(nullable=True, default=None)
     explanation: Mapped[str | None] = mapped_column(nullable=True, default=None)
     use_audio_answer: Mapped[bool] = mapped_column(default=False)
     answers: Mapped[list['QuizAnswer']] = relationship(uselist=True, lazy='immediate')
+    lesson_id: Mapped[int | None] = mapped_column(ForeignKey('lessons.id', ondelete='SET NULL'), nullable=True, default=None)
 
 
 class QuizAnswer(Base):
@@ -57,8 +59,16 @@ class UserAnswer(Base):
 class Lesson(Base):
     __tablename__ = 'lessons'
 
-    content: Mapped[str]
+    name: Mapped[str]
+    status: Mapped[LessonProcessStatus] = mapped_column(default=LessonProcessStatus.DEFAULT)
+    image: Mapped[str | None] = mapped_column(nullable=True, default=None)
+    quizzes: Mapped[list[Quiz]] = relationship(uselist=True, lazy='immediate')
 
-    quiz_id: Mapped[int | None] = mapped_column(ForeignKey('quizzes.id', ondelete='SET NULL'), nullable=True)
-    quiz: Mapped[Quiz] = relationship(uselist=False, lazy='immediate')
 
+class Word(Base):
+    __tablename__ = 'words'
+
+    text: Mapped[str]
+    transcription: Mapped[str]
+    translation: Mapped[str]
+    audio: Mapped[str | None] = mapped_column(nullable=True, default=None)

@@ -18,22 +18,21 @@ api = APIRepository(config.api_url)
 
 logging.basicConfig(level=logging.INFO)
 
-web_app_info = WebAppInfo(url=config.web_app_base_url)
+web_app_main = WebAppInfo(url=config.web_app_base_url)
+web_app_reg = WebAppInfo(url=config.reg_route())
 
 
 @dp.message(CommandStart())
 async def cmd_start(message: types.Message):
     inline_keyboard = InlineKeyboardMarkup(
         inline_keyboard=[[
-            InlineKeyboardButton(text='Тест', web_app=web_app_info),
-            InlineKeyboardButton(text='Темы', web_app=web_app_info),
-            InlineKeyboardButton(text='Задания', web_app=web_app_info),
+            InlineKeyboardButton(text='Заполнить', web_app=web_app_reg),
         ]]
     )
     existed_user = await api.get_user_by_tg_id(message.from_user.id)
     logging.info(str(existed_user))
     if existed_user:
-        return await message.answer(f'Привет, {message.from_user.first_name or message.from_user.username}, я уже знаю тебя.')
+        return await message.answer(f'Привет, {message.from_user.first_name or message.from_user.username}, я уже знаю тебя. Нажми на кнопку если хочешь дозаполнить данные о себе')
 
     created_user = await api.create_user({
         'tg_user_id': message.from_user.id,
@@ -41,7 +40,7 @@ async def cmd_start(message: types.Message):
     })
     logging.info(str(created_user))
 
-    return await message.answer(f'Будем знакомы, {message.from_user.first_name or message.from_user.username}, иди учи татарский', reply_markup=inline_keyboard)
+    return await message.answer(f'Будем знакомы, {message.from_user.first_name or message.from_user.username}, иди учи татарский. \n Но перед этим можешь заполнить данные о тебе, чтобы контент был интереснее', reply_markup=inline_keyboard)
 
 
 @dp.callback_query(F.data == 'cancel')
@@ -57,7 +56,7 @@ async def process_cancel_state(callback: types.CallbackQuery, state: FSMContext)
 async def main():
     await bot.set_chat_menu_button(menu_button=MenuButtonWebApp(
         text="Lessons",
-        web_app=web_app_info
+        web_app=web_app_main
     ))
     dp.include_router(trains_router)
     await dp.start_polling(bot)

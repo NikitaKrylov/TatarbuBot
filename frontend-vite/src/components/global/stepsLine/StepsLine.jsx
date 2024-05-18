@@ -11,7 +11,7 @@ const StepsLine = ({count}) => {
         <>
         <div className={styles.lines}>
             {Array.from(Array(count).keys()).map(i => (
-                <StepLine />
+                <StepLine key={i}/>
             ))}
         </div>
         </>

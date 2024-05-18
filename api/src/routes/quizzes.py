@@ -20,8 +20,8 @@ answers_repository = AnswerRepository()
 
 
 @router.get('/all', response_model=list[QuizOutDTO])
-async def get_all_quizzes():
-    return await quiz_repository.get_all()
+async def get_all_quizzes(offset: int = 0, limit: int = 100):
+    return await quiz_repository.get_all(offset, limit)
 
 
 @router.get('/{quiz_id}', response_model=QuizOutDTO | None)

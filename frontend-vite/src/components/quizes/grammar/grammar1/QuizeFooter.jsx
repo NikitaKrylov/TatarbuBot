@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import styles from './QuizeBottom.module.scss';
+import styles from './QuizeFooter.module.scss';
 import axios from "axios";
 
-const QuizeBottom = ({ numquestion, onClick}) => {
+const QuizeFooter = ({ numquestion, onClick}) => {
   const [button1Color, setButton1Color] = useState(null);
   const [button2Color, setButton2Color] = useState(null);
 
@@ -72,4 +72,4 @@ const QuizeBottom = ({ numquestion, onClick}) => {
   
 };
 
-export default QuizeBottom;
+export default QuizeFooter;

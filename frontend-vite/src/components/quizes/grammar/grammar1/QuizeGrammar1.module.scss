@@ -15,35 +15,25 @@
         margin: 34px 0;
     }
 
-    figure {
-
-        img {
-            min-width: 100%;
-            background-color: $light-gray;
-            min-height: 236px;
-            border-radius: 10px;
-        }
-
-        figcaption {
-            margin-top: 12px;
-            
-            color: $third-black;
-            font-size: 16px;
-            text-align: center;
-        }
+    img {
+        min-width: 100%;
+        background-color: $light-gray;
+        min-height: 236px;
+        border-radius: 10px;
     }
 
     .questionTatar {
         margin-top: 55px;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
         gap: 12px;
 
         input {
             text-align: center;
             padding: 8px 12px;
-            width: 140px;
+            width: 100px;
             min-height: 44px;
             background-color: $light-gray;
             border-radius: 10px;

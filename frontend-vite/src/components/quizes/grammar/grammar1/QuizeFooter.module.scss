@@ -1,0 +1,27 @@
+@import '../../../../assets/styles/global.scss';
+
+.bottom {
+    padding: 25px;
+    display: inline-block;
+    min-height: 192px;
+    min-width: 390px;
+    background-color: $bg-color;
+
+    position: absolute;
+    bottom: 0;
+
+    button {
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        text-align: center;
+        background-color: #fff;
+        border-radius: 12px;
+        font-size: 20px;
+        font-weight: 600;
+
+        &:last-child{
+            margin-top: 14px;
+        }
+    }
+}

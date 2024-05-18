@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import styles from './QuizeAudio2.module.scss';
+import styles from './QuizeGrammar1.module.scss'
 import axios from 'axios';
 import StepsLine from '../../../../components/global/stepsLine/StepsLine';
-import QuizeBottom from '../QuizeBottom';
+import QuizeFooter from '../../grammar/grammar1/QuizeFooter';
 
-const QuizeAudio2 = () => {
+const QuizeGrammar1 = () => {
   let url = `https://misis52.clayenkitten.ru/api/quizzes/1`;
 
   const [question, setQuestion] = useState('');
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,29 +24,27 @@ const QuizeAudio2 = () => {
     fetchData();
   }, [url]);
 
-  function handleClick(value) {
-    setInputValue(value);
+  function handleChange(){
+    setInputValue(value)
   }
+
 
   return (
     <>
       <main className={styles.mainBlock}>
         <section className={styles.section}>
           <StepsLine count={4} />
-          <h5>Какое слово пропущено?</h5>
-          <figure>
-            <img onClick={() => alert('click')} src={url} alt="рисунок белема" />
-            <figcaption>Нажмите, чтобы прослушать</figcaption>
-          </figure>
+          <h5>Впиши слово, которое пропущено</h5>
+          <img src={url} alt="рисунок белема" />
           <div className={styles.questionTatar}>
-            <input type="text" value={inputValue} />
-            <label htmlFor="">Ничек син дус?</label>
+            <input type="text" value={inputValue} onChange={handleChange}/>
+            <label htmlFor="">{question}</label>
           </div>
         </section>
-        <QuizeBottom onClick={handleClick} numquestion={1} />
+        <QuizeFooter/>
       </main>
     </>
   );
 };
 
-export default QuizeAudio2;
+export default QuizeGrammar1;

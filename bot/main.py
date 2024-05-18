@@ -19,7 +19,7 @@ api = APIRepository(config.api_url)
 logging.basicConfig(level=logging.INFO)
 
 web_app_main = WebAppInfo(url=config.web_app_base_url)
-web_app_reg = WebAppInfo(url=config.reg_route)
+web_app_reg = WebAppInfo(url=config.reg_route())
 
 
 @dp.message(CommandStart())

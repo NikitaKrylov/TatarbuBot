@@ -62,6 +62,7 @@ class Lesson(Base):
     name: Mapped[str]
     status: Mapped[LessonProcessStatus] = mapped_column(default=LessonProcessStatus.DEFAULT)
     image: Mapped[str | None] = mapped_column(nullable=True, default=None)
+    knowledge: Mapped[str] = mapped_column(default='')
     quizzes: Mapped[list[Quiz]] = relationship(uselist=True, lazy='immediate')
 
 

@@ -12,6 +12,7 @@ class LessonProcessStatus(str, Enum):
 class LessonOutDTO(BaseModel):
     id: int
     name: str
+    knowledge: str
     status: LessonProcessStatus
     image: str | None = None
     quizzes: list[QuizOutDTO]
@@ -19,6 +20,7 @@ class LessonOutDTO(BaseModel):
 
 class LessonCreateDTO(BaseModel):
     name: str
+    knowledge: str
     status: LessonProcessStatus
 
 

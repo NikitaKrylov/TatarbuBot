@@ -174,7 +174,7 @@ class UserAnswerRepository(SQLAlchemyRepository):
                 translated_text = translator.translate(tt_text, dest='ru')
 
                 logging.info(f'"{result.name}" "{tt_text}" "{translated_text}"')
-                is_correct = result.name.lower() == translated_text.text.lower()
+                is_correct = result.explanation.lower() == translated_text.text.lower()
             except Exception as e:
                 print(e)
                 print('error in translation')

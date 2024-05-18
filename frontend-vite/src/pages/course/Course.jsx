@@ -7,15 +7,22 @@ import les1 from '../../assets/images_course/1lesson.png'
 import CourseProgress from '../../components/course/CourseProgress/CourseProgress.jsx';
 import lock from '../../assets/icons/normal/lock.svg'
 import { useLocation } from 'react-router-dom';
+import axios from "axios";
 const Course=()=> {
   const [stat1, setStat1] = useState("todo");
   const [stat2, setStat2] = useState("locked");
   const [stat3, setStat3] = useState("locked");
-  const [progres, setProgress] = useState("1");
+  const [progres, setProgress] = useState(1);
   const location = useLocation();
+  let url = `https://misis52.clayenkitten.ru/api/lessons/all`
+  const [data, setData] = useState([]);
+
   useEffect(() => {
-    setProgress(location.state && location.state.progres)
-}, [location]);
+    axios.get(url)
+      .then(response => setData(response.data[0]))
+      .catch(error => console.error(error));
+      
+  }, []);
   useEffect(() => {
     switch(progres){
       case 1:
@@ -35,14 +42,13 @@ const Course=()=> {
         break;
     }
   },[progres])
-  console.log(progres)
   return (
     <>
       <main className={cls.main}>
         <CurLesson/>
-        <CourseProgress progresscourse={progres} num={"Глава первая"} name={"Встреча в Казани"}/>
+        <CourseProgress progresscourse={progres-1} num={"Глава первая"} name={"Встреча в Казани"}/>
         <div className={cls.lessonsplace}>
-          <LessonOnCourse status={stat1}  nav_to={"/"} photo={les1} nummmer={1} name={'Первые шаги'} knowledge={"Как здороваться, говорить спасибо и прощаться"}/>
+          <LessonOnCourse status={data.status}photo={data.image} nummmer={1} nav_to={"/course/lesson_1"} name={data.name} knowledge={data.knowledge}/>
           <LessonOnCourse status={stat2}photo={les1} nummmer={2} name={'Мудрец Белем'} knowledge={"Базовые слова для простого диалога"}/>
           <LessonOnCourse status={stat3}photo={les1} nummmer={3} name={'Таинственный амулет'} knowledge={"Как здороваться, говорить спасибо и прощаться"}/>
           <LessonOnCourse status={"locked"}photo={les1} nummmer={4} name={'Прогулка по городу'} knowledge={"Как здороваться, говорить спасибо и прощаться"}/>

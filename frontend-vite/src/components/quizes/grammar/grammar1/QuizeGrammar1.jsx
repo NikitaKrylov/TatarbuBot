@@ -41,9 +41,7 @@ const QuizeGrammar1 = ({onClick}) => {
             <label htmlFor="">{question}</label>
           </div>
         </section>
-        <div onClick={onClick}>
-          <QuizeFooter numquestion={1} />
-        </div>
+          <QuizeFooter onClicked={onClick} numquestion={1} />
       </main>
     </>
   );

@@ -5,7 +5,7 @@ import Home from './pages/home/Home.jsx'
 import Registration from './pages/registration/Registration.jsx'
 
 import QuizeAudio1 from './components/quizes/audio/audio1/QuizeAudio1.jsx';
-import QuizeAudio2 from './components/quizes/audio/audio2/QuizeAudio2.jsx';
+import QuizeAudio21 from './components/quizes/audio/audio21/QuizeAudio21.jsx';
 import QuizeGrammar1 from './components/quizes/grammar/grammar1/QuizeGrammar1.jsx'
 import QuizeGrammar2 from './components/quizes/grammar/grammar2/QuizeGrammar2.jsx'
 
@@ -29,7 +29,7 @@ const routes = createBrowserRouter([
   },
   {
     path:'/course/lesson2',
-    element: <QuizeAudio2/>
+    element: <QuizeAudio21/>
   },
   {
     path:'/course/lesson3',

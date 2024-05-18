@@ -4,6 +4,7 @@
     position: relative;
     height: 100vh;
     background-color: #fff;
+    overflow:hidden;
 }
 
 .section {
@@ -31,5 +32,34 @@
             font-size: 16px;
             text-align: center;
         }
+    }
+}
+.recblock{
+    height: 250px;
+    width: 100%;
+    background-color: $bg-color;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .btn{
+        width: 340px;
+        background-color: $white;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: row;
+        padding: 16px 24px 16px 24px;
+        justify-content: center;
+        gap:16px;
+    }
+    .trans{
+        margin-top: 12px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16.7px;
+        letter-spacing: 0.0025em;
+        text-align: center;
+        color: $third-black;
+        margin-bottom: 24px;
     }
 }

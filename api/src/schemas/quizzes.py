@@ -20,6 +20,7 @@ class AnswerOutDTO(BaseAnswerDTO):
 
 class BaseQuizDTO(BaseModel):
     name: str
+    text: str | None = None
     use_audio_answer: bool
     image: str | None
     audio: str | None

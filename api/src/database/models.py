@@ -26,6 +26,7 @@ class Quiz(Base):
     __tablename__ = 'quizzes'
 
     name: Mapped[str]
+    text: Mapped[str | None] = mapped_column(nullable=True, default=None)
     quiz_type: Mapped[str]
     image: Mapped[str | None] = mapped_column(nullable=True, default=None)
     audio: Mapped[str | None] = mapped_column(nullable=True, default=None)
@@ -73,3 +74,11 @@ class Word(Base):
     transcription: Mapped[str]
     translation: Mapped[str]
     audio: Mapped[str | None] = mapped_column(nullable=True, default=None)
+
+
+class LessonProgress(Base):
+    __tablename__ = 'lesson_progresses'
+
+    user_id: Mapped[int] = mapped_column(ForeignKey('users.tg_user_id', ondelete='CASCADE'))
+
+

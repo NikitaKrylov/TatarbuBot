@@ -1,10 +1,9 @@
-from select import select
 from random import choice
 from src.database.db import async_session
 from src.database.models import Word
 from src.repository.base_sqlalchemy import SQLAlchemyRepository
 from src.schemas.words import WordCreateDTO, WordOutDTO
-
+from sqlalchemy import select
 
 class WordsRepository(SQLAlchemyRepository):
     model = Word
@@ -17,7 +16,7 @@ class WordsRepository(SQLAlchemyRepository):
 
     async def create(self, data: WordCreateDTO) -> WordOutDTO:
         async with async_session() as session:
-            return self.create_object(
+            return await self.create_object(
                 session,
                 data,
                 WordOutDTO

@@ -15,12 +15,12 @@ class User(Base):
     joined_at: Mapped[datetime] = mapped_column(default=datetime.now)
     last_active: Mapped[datetime] = mapped_column(default=datetime.now)
 
-
-class QuizType(str, Enum):
-    GRAMMAR = 'Грамматика'
-    READING = 'Чтение'
-    ACCENT = 'Ударения'
-
+#
+# class QuizType(str, Enum):
+#     GRAMMAR = 'Грамматика'
+#     READING = 'Чтение'
+#     ACCENT = 'Ударения'
+#
 
 class Quiz(Base):
     __tablename__ = 'quizzes'

@@ -5,7 +5,7 @@ from googletrans import Translator
 
 from src.database.db import async_session
 from src.repository.base_sqlalchemy import SQLAlchemyRepository
-from src.database.models import Quiz, QuizAnswer, UserAnswer, QuizType
+from src.database.models import Quiz, QuizAnswer, UserAnswer
 from src.schemas.quizzes import QuizCreateDTO, AnswerOutDTO, QuizOutDTO, UserAnswerCreateDTO, UserAnswerOutDTO
 from sqlalchemy import select, update, func, text
 from starlette import status

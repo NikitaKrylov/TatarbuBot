@@ -1,38 +1,51 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './QuizeBottom.module.scss'
+import axios from "axios";
 
-const QuizeBottom = () => {
-    let text1 = 'Сәлам'
-    let text2 = 'Сәламат иртә'
-
+const QuizeBottom = ({numquestion}) => {
     const [button1Color, setButton1Color] = useState(null);
     const [button2Color, setButton2Color] = useState(null);
 
+    let url = `https://misis52.clayenkitten.ru/api/quizzes/${numquestion}`
+    const [answers, setAnswers] = useState([]);
+
+    const getData = async function fetchData() {
+        try {
+            const response = await axios.get(url);
+            const data = response.data;
+            setAnswers(data.answers)
+            
+        } catch (error) {
+            console.error(error);
+        }
+
+        console.log(answers);
+    }
+
+
+    useEffect(() => {
+        getData();
+    }, []);
+
+    let text1 = '';
+    let text2 = '' ;
+
+    // let correct = answers.filter((ans) => ans.is_correct === true)
+    // console.log(correct);
+    // let correctText = correct[0].text;
+    // console.log(correctText);
 
     const handleButtonClick = (e) => {
-        //получение ответа от сервера
-        let url = ''
-        const [ans, setAns] = useState([]);
-        const getApiData = async () => {
-            const response = await fetch(url)
-                .then((response) => response.json());
-                //получаем ответы 
-
-                setAns(response);
-        };
-
-        useEffect(() => {
-            getApiData();
-        }, []);
 
         e.stopPropagation();
-        console.log(e.target);
+        let userAns = e.target;
+        userAns.value === correct ? console.log('true') : console.log('false');
 
         //проверка данной кнопки на правильность
         //если правильно, то у этой кнопки фон #29B393 и цвет ...
         //если неправильно, то у этой кнопки фон #FF536B и цвет ...
 
-            if (ans === true) {
+        if (ans === true) {
             setButton1Color('#29B393');
             setButton2Color(null);
         } else if (ans === false) {
@@ -53,8 +66,8 @@ const QuizeBottom = () => {
 
     return (
         <bottom className={styles.bottom}>
-            <button onClick={(e) => handleButtonClick(e)} style={button1Style}>{text1}</button>
-            <button onClick={(e) => handleButtonClick(e)} style={button2Style}>{text2}</button>
+            <button onClick={(e) => handleButtonClick(e)} style={button1Style} value={text1}>{text1}</button>
+            <button onClick={(e) => handleButtonClick(e)} style={button2Style} value={text2}>{text2}</button>
         </bottom>
     )
 }

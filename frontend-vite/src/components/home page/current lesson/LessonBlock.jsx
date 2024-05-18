@@ -19,7 +19,7 @@ export default function LessonBlock(){
                         <p className={styles.p_lesson}>Урок {numLesson}</p> 
                         <p className={styles.p}>{nameLesson}</p>
                     </h3>
-                    <StepsLine/>
+                    <StepsLine count={5}/>
                     <MainButton text='Продолжить обучение' color='white'/>
                 </div>
             </section>

@@ -30,7 +30,7 @@ const Step2 = ({onClick}) => {
     <>
 
         <div>
-            <StepsLine/>
+            <StepsLine count={4}/>
             <Topic 
                 h1 ='Выбери язык, на котором ты разговариваешь' 
                 description ='Твое обучение проодолжится на выбранном языке'

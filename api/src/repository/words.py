@@ -12,7 +12,7 @@ class WordsRepository(SQLAlchemyRepository):
         async with async_session() as session:
             query = select(Word)
             result = await session.execute(query)
-            return WordOutDTO.model_validate(choice(result.scalars()), from_attributes=True)
+            return WordOutDTO.model_validate(choice(result.scalars().all()), from_attributes=True)
 
     async def create(self, data: WordCreateDTO) -> WordOutDTO:
         async with async_session() as session:

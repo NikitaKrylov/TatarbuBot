@@ -4,7 +4,7 @@ import axios from "axios";
 import StepsLine from '../../../../components/global/stepsLine/StepsLine';
 import QuizeBottom from '../QuizeBottom';
 
-const QuizeAudio1 = () => {
+const QuizeAudio1 = ({onClick}) => {
   let url = `https://misis52.clayenkitten.ru/api/quizzes/2  `;
 
   const [question, setQuestion] = useState('');
@@ -29,14 +29,18 @@ const QuizeAudio1 = () => {
     <>
       <main className={styles.mainBlock}>
         <section className={styles.section}>
-          <StepsLine count={4} />
+          <StepsLine count={9} />
           <h5>{question}</h5>
           <figure>
             <img onClick={() => alert('click')} src={src} alt="рисунок Белема" />
             <figcaption>Нажмите, чтобы прослушать</figcaption>
           </figure>
         </section>
-        <QuizeBottom numquestion={2} />
+        
+        <div onClick={onClick}>
+          <QuizeBottom numquestion={1} />
+        </div>
+        
       </main>
     </>
   );

@@ -7,7 +7,7 @@ const QuizSpeaking=()=>{
   return (
     <main className={cls.mainBlock}>
         <section className={cls.section}>
-          <StepsLine count={5} />
+          <StepsLine count={9} />
           <h5>Слушай и повторяй</h5>
           <figure>
             <img onClick={() => alert('click')} src={belem} alt="рисунок Белема" />

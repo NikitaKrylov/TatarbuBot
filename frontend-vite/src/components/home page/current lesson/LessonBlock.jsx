@@ -4,9 +4,9 @@ import StepsLine from '../../global/stepsLine/StepsLine.jsx'
 import ornament from '../../../assets/icons/normal/ornament.svg';
 import {useNavigate} from "react-router-dom"
 export default function LessonBlock(){
-    let nameCourse = 'Базовый курс, первый модуль'
-    let numLesson = 3;
-    let nameLesson = 'Название урока';
+    let nameCourse = 'Путешествие в татарский эпос, ㅤㅤㅤглава первая'
+    let numLesson = 1;
+    let nameLesson = 'Знакомство';
     const navigate = useNavigate();
     function toCourse(){
         navigate("/course")

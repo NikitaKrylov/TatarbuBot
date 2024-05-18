@@ -8,7 +8,7 @@ const QuizeAudio1 = ({onClick}) => {
   let url = `https://misis52.clayenkitten.ru/api/quizzes/2  `;
 
   const [question, setQuestion] = useState('');
-
+  
   useEffect(() => {
     const fetchData = async () => {
       try {

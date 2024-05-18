@@ -1,31 +1,40 @@
 import React, { useEffect, useState } from 'react'
 import cls from './LessonOnCourse.module.scss'
-const LessonOnCourse=({nummmer,photo,name,knowledge,completed,nav_to})=> {
+import lock from '../../../assets/icons/normal/lock.svg'
+const LessonOnCourse=({nummmer,photo,name,knowledge,status,nav_to}) => {
   const [maincolor, setMaincolor] = useState(null);
   const [backcolor, setBackcolor] = useState(null);
   const [txt, setText] = useState(null);
   useEffect(()=>{
-    if (completed === true){
-      setMaincolor('#1E1E1E');
-      setBackcolor('#F3F2F0');
-      setText('Повторить')
+    switch(completed){
+      case "done":
+        setMaincolor('#1E1E1E');
+        setBackcolor('#F3F2F0');
+        setText('Повторить');
+        break;
+      case "todo":
+        setMaincolor('#FFFFFF');
+        setBackcolor('#A247FB');
+        setText('Начать');
+        break;
+      case "locked":
+        setBackcolor('#F3F2F0');
+        setMaincolor('#1E1E1E');
+        setText(null);
+        break;
+  
     }
-    else{
-      setMaincolor('#FFFFFF');
-      setBackcolor('#A247FB');
-      setText('Начать')
-
-    }
-
+    
   },[completed]);
   let colorized = {
     color:maincolor,
-    backgroundColor:backcolor
+    backgroundColor:backcolor,
+    
   }
   return (
     <div className={cls.lesson}>
       <div className={cls.title}>
-        <span className={cls.numlesson}>Урок{nummmer}</span>
+        <span className={cls.numlesson}>Урок {nummmer}</span>
         <span className={cls.name}>{name}</span>
       </div>
       <div className={cls.content}>
@@ -35,7 +44,7 @@ const LessonOnCourse=({nummmer,photo,name,knowledge,completed,nav_to})=> {
         <div className={cls.rightside}>
           <span style={{color:'#7C7C7C'}}>Ты узнаешь:</span>
           <span className={cls.knowns}>{knowledge}</span>
-          <button className={cls.btn} style={colorized}>{txt}</button>
+          {completed === "locked" ?(<button disabled className={cls.btn} style={colorized}><img src={lock} width={"15px"} height={"15px"} /></button>):(<button className={cls.btn} style={colorized}><span>{txt}</span></button>)}
         </div>
       </div>
     </div>

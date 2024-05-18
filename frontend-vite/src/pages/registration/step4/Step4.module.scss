@@ -1,24 +1,36 @@
 @import '../../../assets/styles/global.scss';
 
 section {
-    .cards {
-        margin-top: 48px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        flex-wrap: nowrap;
-        align-items: center;
-        gap: 12px;
+  .cards {
+    margin-top: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 12px;
 
-        .card {
-            border-radius: 10px;
-            min-width: 100%;
-            min-height: 113px;
-            background-color: $light-gray;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px;
-        }
+    .card {
+      border-radius: 10px;
+      width: 100%;
+      min-width: 100%;
+      min-height: 113px;
+      background-color: $light-gray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      cursor: pointer;
+      text-align: center;
+      transition: border-color 0.3s, background-color 0.3s;
+
+      &:hover {
+        border-color: #ccc;
+      }
+
+      &.selected {
+        background-color: #C0F8EB;
+      }
     }
+  }
 }

@@ -13,8 +13,11 @@ const Course=()=> {
         <CurLesson/>
         <CourseProgress progress={1} num={"Глава первая"} name={"Встреча в Казани"}/>
         <div className={cls.lessonsplace}>
-          <LessonOnCourse nav_to={"/"} photo={les1} nummmer={1} name={'Первые шаги'} knowledge={"Как здороваться, говорить спасибо и прощаться"}/>
-          <LessonOnCourse photo={les1} nummmer={1} name={'Первые шаги'} knowledge={"Как здороваться, говорить спасибо и прощаться"}/>
+          <LessonOnCourse status={"todo"}  nav_to={"/"} photo={les1} nummmer={1} name={'Первые шаги'} knowledge={"Как здороваться, говорить спасибо и прощаться"}/>
+          <LessonOnCourse status={"locked"}photo={les1} nummmer={2} name={'Мудрец Белем'} knowledge={"Базовые слова для простого диалога"}/>
+          <LessonOnCourse photo={les1} nummmer={3} name={'Таинственный амулет'} knowledge={"Как здороваться, говорить спасибо и прощаться"}/>
+          <LessonOnCourse photo={les1} nummmer={4} name={'Прогулка по городу'} knowledge={"Как здороваться, говорить спасибо и прощаться"}/>
+          <LessonOnCourse photo={les1} nummmer={4} name={'Поход в музей'} knowledge={"Как здороваться, говорить спасибо и прощаться"}/>
         </div>
         <CourseProgress  progress={0} num={"Глава первая"} name={"Встреча в Казани"}/>
         <div className={cls.nextChapter}>

@@ -5,10 +5,10 @@ import StepsLine from '../../../../components/global/stepsLine/StepsLine';
 import QuizeFooter from '../../grammar/grammar1/QuizeFooter';
 
 const QuizeGrammar1 = () => {
-  let url = `https://misis52.clayenkitten.ru/api/quizzes/1`;
+  let url = `https://misis52.clayenkitten.ru/api/quizzes/2`;
 
   const [question, setQuestion] = useState('');
-  const [inputValue, setInputValue] = useState(null);
+  const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,8 +24,8 @@ const QuizeGrammar1 = () => {
     fetchData();
   }, [url]);
 
-  function handleChange(){
-    setInputValue(value)
+  function handleChange(e){
+    setInputValue(e.target.value)
   }
 
 
@@ -41,7 +41,7 @@ const QuizeGrammar1 = () => {
             <label htmlFor="">{question}</label>
           </div>
         </section>
-        <QuizeFooter/>
+        <QuizeFooter  numquestion={2}/>
       </main>
     </>
   );

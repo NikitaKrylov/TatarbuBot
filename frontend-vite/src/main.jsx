@@ -7,9 +7,11 @@ import Registration from './pages/registration/Registration.jsx'
 import QuizeAudio1 from './components/quizes/audio/audio1/QuizeAudio1.jsx';
 import QuizeAudio2 from './components/quizes/audio/audio2/QuizeAudio2.jsx';
 import QuizeGrammar1 from './components/quizes/grammar/grammar1/QuizeGrammar1.jsx'
+import QuizeGrammar2 from './components/quizes/grammar/grammar2/QuizeGrammar2.jsx'
 
 import Course from './pages/course/Course.jsx';
 import QuizSpeaking from './components/quizes/speaking/QuizSpeaking.jsx';
+
 
 const routes = createBrowserRouter([
   {   
@@ -32,6 +34,10 @@ const routes = createBrowserRouter([
     path:'/course/lesson3',
     element: <QuizeGrammar1/>
   },
+  {
+    path:'/course/lesson4',
+    element: <QuizeGrammar2/>
+  },
   // {
   //   path:'/explore',
   //   element:<Explore/>
@@ -52,7 +58,6 @@ const routes = createBrowserRouter([
     path:"/course/speaking",
     element: <QuizSpeaking/>
   }
-
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

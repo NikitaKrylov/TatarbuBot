@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import StepsLine from '../../../components/global/stepsLine/StepsLine'
 import Topic from '../../../components/registration/topic/Topic'
 import styles from './Step2.module.scss'
@@ -9,6 +9,12 @@ import flagGe from '../../../assets/icons/normal/Flag_Georgia.svg'
 
 import MainButton from '../../../components/global/Button/MainButton'
 
+const [bg, setBg] = useState(null)
+
+function colorized (e){
+    console.log('uughg');
+    if (e.target.hasAttribute('checked')) setBg('#C0F8EB');
+}
 
 const Step2 = ({onClick}) => {
 
@@ -36,9 +42,9 @@ const Step2 = ({onClick}) => {
                 description ='Твое обучение проодолжится на выбранном языке'
             />
             <ul className={styles.ul}>
-                <li>
+                <li >
                     <input hidden type="radio" id='russian' name='lang'/>
-                    <label className={styles.lang} htmlFor="russian">
+                    <label onClick={console.log(e)} className={styles.lang} htmlFor="russian">
                         <img src={flagRu}></img>
                         <p>Русский</p>
                     </label>

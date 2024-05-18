@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './QuizeFooter.module.scss';
 import axios from "axios";
 
-const QuizeFooter = ({ numquestion, onClick}) => {
+const QuizeFooter = ({ numquestion}) => {
   const [button1Color, setButton1Color] = useState(null);
   const [button2Color, setButton2Color] = useState(null);
 
@@ -61,10 +61,10 @@ const QuizeFooter = ({ numquestion, onClick}) => {
 
     return (
       <div className={styles.bottom}>
-      <button onClick={(e) => {handleButtonClick(e); onClick(text1)}} style={button1Style} value={text1}>
+      <button onClick={(e) => {handleButtonClick(e)}} style={button1Style} value={text1}>
           {text1}
         </button>
-    <button onClick={(e) => {handleButtonClick(e); onClick(text2)}} style={button2Style} value={text2}>
+    <button onClick={(e) => {handleButtonClick(e)}} style={button2Style} value={text2}>
           {text2}
         </button>
       </div>

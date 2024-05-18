@@ -39,7 +39,7 @@ app.add_middleware(
     allow_headers=['*']
 )
 
-app.mount("/media", StaticFiles(directory="media/"), name="media")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 app.include_router(users_router)
 app.include_router(quiz_router)

@@ -47,7 +47,7 @@ services:
     depends_on:
       - db
     volumes:
-      - ./media:/media
+      - static:/api/static
     expose: [ 8000 ]
 
   tg-bot:
@@ -84,3 +84,4 @@ services:
 volumes:
   caddy_data:
   caddy_config:
+  static:

@@ -3,7 +3,7 @@ import aiofiles.os
 
 
 async def save_image(file) -> str:
-    file_path = 'media/' + file.filename
+    file_path = 'static/' + file.filename
     async with aiofiles.open(file_path, mode='wb') as f:
         content = await file.read()
         await f.write(content)
@@ -12,7 +12,7 @@ async def save_image(file) -> str:
 
 
 async def save_audio(file) -> str:
-    file_path = 'media/' + file.filename
+    file_path = 'static/' + file.filename
     async with aiofiles.open(file_path, mode='wb') as f:
         content = await file.read()
         await f.write(content)

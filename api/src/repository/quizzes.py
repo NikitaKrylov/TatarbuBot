@@ -168,11 +168,17 @@ class UserAnswerRepository(SQLAlchemyRepository):
 
             tt_text = await speach_to_text(file)
             translator = Translator()
-            translator.detect(tt_text)
-            translated_text = translator.translate(tt_text, dest='ru')
 
-            logging.info(f'"{result.name}" "{tt_text}" "{translated_text}"')
-            is_correct = result.name == translated_text
+            try:
+                translator.detect(tt_text)
+                translated_text = translator.translate(tt_text, dest='ru')
+
+                logging.info(f'"{result.name}" "{tt_text}" "{translated_text}"')
+                is_correct = result.name.lower() == translated_text.text.lower()
+            except Exception as e:
+                print(e)
+                print('error in translation')
+                is_correct = False
 
             quiz_type = result.quiz_type
 

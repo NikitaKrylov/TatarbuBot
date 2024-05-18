@@ -11,7 +11,7 @@ from src.repository.api import APIRepository
 from src.routes.trains import router as trains_router
 from aiogram.enums.parse_mode import ParseMode
 from aiogram.fsm.context import FSMContext
-from aiogram.types.input_file import InputFile
+from aiogram.types.input_file import FSInputFile
 
 
 bot = Bot(token=config.bot_token)
@@ -23,7 +23,7 @@ logging.basicConfig(level=logging.INFO)
 web_app_main = WebAppInfo(url=config.web_app_base_url)
 web_app_reg = WebAppInfo(url=config.reg_route())
 
-start_photo = InputFile("static/start_photo.jpg")
+start_photo = FSInputFile("static/start_photo.jpg")
 
 
 @dp.message(CommandStart())

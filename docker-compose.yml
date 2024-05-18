@@ -29,6 +29,7 @@ services:
 
   db:
     container_name: db
+    restart: unless-stopped
     image: postgres:latest
     env_file: ./api/db.env
     volumes:

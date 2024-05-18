@@ -6,7 +6,7 @@ const LessonOnCourse=({nummmer,photo,name,knowledge,status,nav_to}) => {
   const [backcolor, setBackcolor] = useState(null);
   const [txt, setText] = useState(null);
   useEffect(()=>{
-    switch(completed){
+    switch(status){
       case "done":
         setMaincolor('#1E1E1E');
         setBackcolor('#F3F2F0');
@@ -25,7 +25,7 @@ const LessonOnCourse=({nummmer,photo,name,knowledge,status,nav_to}) => {
   
     }
     
-  },[completed]);
+  },[status]);
   let colorized = {
     color:maincolor,
     backgroundColor:backcolor,
@@ -44,7 +44,7 @@ const LessonOnCourse=({nummmer,photo,name,knowledge,status,nav_to}) => {
         <div className={cls.rightside}>
           <span style={{color:'#7C7C7C'}}>Ты узнаешь:</span>
           <span className={cls.knowns}>{knowledge}</span>
-          {completed === "locked" ?(<button disabled className={cls.btn} style={colorized}><img src={lock} width={"15px"} height={"15px"} /></button>):(<button className={cls.btn} style={colorized}><span>{txt}</span></button>)}
+          {status === "locked" ?(<button disabled className={cls.btn} style={colorized}><img src={lock} width={"15px"} height={"15px"} /></button>):(<button className={cls.btn} style={colorized}><span>{txt}</span></button>)}
         </div>
       </div>
     </div>

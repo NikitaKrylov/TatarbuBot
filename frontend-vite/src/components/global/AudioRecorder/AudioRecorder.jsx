@@ -61,18 +61,11 @@ const AudioRecorder = () => {
     <div className={cls.recorder}>
       <button
         className={cls.btn}
-        onMouseDown={startRecording}
-        onMouseUp={stopRecording}
         onTouchStart={startRecording}
         onTouchEnd={stopRecording}
       >
         <img src={mic} alt="microphone" />
       </button>
-      {isRecording ? 'Recording...' : 'Hold to Record'}
-      <div className={cls.fl}>
-        Твой файл
-        {audioURL && <audio src={audioURL} controls />}
-      </div>
     </div>
   );
 };

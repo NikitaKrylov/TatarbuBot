@@ -2,15 +2,18 @@ import React, { useState, useEffect } from 'react';
 import styles from './QuizeFooter.module.scss';
 import axios from "axios";
 
-const QuizeFooter = ({ numquestion}) => {
+const QuizeFooter = ({ numquestion, onClicked}) => {
   const [button1Color, setButton1Color] = useState(null);
   const [button2Color, setButton2Color] = useState(null);
-
+  
+  
   let url = `https://misis52.clayenkitten.ru/api/quizzes/${numquestion}`;
 
   const [answers, setAnswers] = useState([]);
   const [answers1, setAnswers1] = useState([]);
   const [answers2, setAnswers2] = useState([]);
+  const [isVisible, setIsVisible] = useState(true);
+  const [isButtonClicked, setIsButtonClicked] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,6 +41,7 @@ const QuizeFooter = ({ numquestion}) => {
   let userAns = ''
   const handleButtonClick = (e) => {
      userAns = e.target.value;
+     setIsButtonClicked(true);
 
     if (userAns === correct?.text) {
       setButton1Color('#29B393');
@@ -47,6 +51,16 @@ const QuizeFooter = ({ numquestion}) => {
       setButton2Color('#FF536B');
     }
   };
+
+  useEffect(() => {
+    if (isButtonClicked) {
+      const timer = setTimeout(() => {
+        setIsVisible(false);
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [isButtonClicked]);
 
   let button1Style = {
     backgroundColor: button1Color,
@@ -60,13 +74,18 @@ const QuizeFooter = ({ numquestion}) => {
 
 
     return (
-      <div className={styles.bottom}>
-      <button onClick={(e) => {handleButtonClick(e)}} style={button1Style} value={text1}>
-          {text1}
-        </button>
-    <button onClick={(e) => {handleButtonClick(e)}} style={button2Style} value={text2}>
-          {text2}
-        </button>
+      <div>
+        {isVisible && (
+          <div className={styles.bottom}>
+            <button style={button1Style} value={text1}>
+              {text1}
+            </button>
+            <button style={button2Style} value={text2}>
+              {text2}
+            </button>
+          </div>
+        )}
+        {!isVisible && <button className={styles.continue} onClick={onClicked}>Продолжить</button>}
       </div>
     );
   

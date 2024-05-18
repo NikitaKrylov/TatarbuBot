@@ -25,6 +25,10 @@ const QuizeAudio1 = ({onClick}) => {
 
   let src = '#';
 
+  function handleElement(e){
+    console.log(e.target);
+  }
+
   return (
     <>
       <main className={styles.mainBlock}>
@@ -37,10 +41,8 @@ const QuizeAudio1 = ({onClick}) => {
           </figure>
         </section>
         
-        <div onClick={onClick}>
-          <QuizeBottom numquestion={1} />
-        </div>
-        
+        <QuizeBottom onClicked={onClick} numquestion={1} />
+
       </main>
     </>
   );

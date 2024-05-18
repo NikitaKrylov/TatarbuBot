@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './QuizeBottom.module.scss';
 import axios from "axios";
 
-const QuizeBottom = ({ numquestion, onClicked }) => {
+const QuizeBottom = ({ numquestion, onClicked}) => {
   const [button1Color, setButton1Color] = useState(null);
   const [button2Color, setButton2Color] = useState(null);
   const [answers, setAnswers] = useState([]);
@@ -33,6 +33,7 @@ const QuizeBottom = ({ numquestion, onClicked }) => {
   const handleButtonClick = (e) => {
     e.preventDefault();
     const userAns = e.target.value;
+    console.log(userAns);
     setIsButtonClicked(true);
 
     if (userAns === correct?.text) {
@@ -58,7 +59,7 @@ const QuizeBottom = ({ numquestion, onClicked }) => {
     if (isButtonClicked) {
       const timer = setTimeout(() => {
         setIsVisible(false);
-      }, 5000);
+      }, 3000);
 
       return () => clearTimeout(timer);
     }
@@ -78,11 +79,11 @@ const QuizeBottom = ({ numquestion, onClicked }) => {
     <div>
       {isVisible && (
         <div className={styles.bottom}>
-          <button onClick={(e) => { handleButtonClick(e)}} style={button1Style} value={text1}>
-            {text1}
+          <button onClick={() => { handleButtonClick(e)}} style={button1Style} value={text1}>
+            {/* {text1} */}ggggggggggg
           </button>
           <button onClick={(e) => { handleButtonClick(e)}} style={button2Style} value={text2}>
-            {text2}
+            {/* {text2} */}gggg
           </button>
         </div>
       )}

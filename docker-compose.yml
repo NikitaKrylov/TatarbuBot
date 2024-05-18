@@ -46,6 +46,8 @@ services:
       dockerfile: api.dockerfile
     depends_on:
       - db
+    volumes:
+      - ./media:/media
     expose: [ 8000 ]
 
   tg-bot:

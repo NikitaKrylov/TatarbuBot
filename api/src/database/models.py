@@ -32,7 +32,7 @@ class Quiz(Base):
     explanation: Mapped[str | None] = mapped_column(nullable=True, default=None)
     use_audio_answer: Mapped[bool] = mapped_column(default=False)
     answers: Mapped[list['QuizAnswer']] = relationship(uselist=True, lazy='immediate')
-    lesson_id: Mapped[int | None] = mapped_column(ForeignKey('lessons.id'), nullable=True, default=None)
+    lesson_id: Mapped[int | None] = mapped_column(ForeignKey('lessons.id', ondelete='SET NULL'), nullable=True, default=None)
 
 
 class QuizAnswer(Base):

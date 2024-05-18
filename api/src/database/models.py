@@ -64,7 +64,7 @@ class Lesson(Base):
     status: Mapped[LessonProcessStatus] = mapped_column(default=LessonProcessStatus.DEFAULT)
     image: Mapped[str | None] = mapped_column(nullable=True, default=None)
     knowledge: Mapped[str] = mapped_column(default='')
-    quizzes: Mapped[list[Quiz]] = relationship(uselist=True, lazy='immediate', order_by='Lesson.id.asc()')
+    quizzes: Mapped[list[Quiz]] = relationship(uselist=True, lazy='immediate', order_by='Quiz.id.asc()')
 
 
 class Word(Base):

@@ -62,3 +62,11 @@ class Lesson(Base):
     quiz_id: Mapped[int | None] = mapped_column(ForeignKey('quizzes.id', ondelete='SET NULL'), nullable=True)
     quiz: Mapped[Quiz] = relationship(uselist=False, lazy='immediate')
 
+
+class Word(Base):
+    __tablename__ = 'words'
+
+    text: Mapped[str]
+    transcription: Mapped[str]
+    translation: Mapped[str]
+    audio: Mapped[str | None] = mapped_column(nullable=True, default=None)

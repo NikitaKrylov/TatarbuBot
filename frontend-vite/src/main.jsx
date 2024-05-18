@@ -9,6 +9,7 @@ import QuizeAudio2 from './components/quizes/audio/audio2/QuizeAudio2.jsx';
 import QuizeGrammar1 from './components/quizes/grammar/grammar1/QuizeGrammar1.jsx'
 
 import Course from './pages/course/Course.jsx';
+import QuizSpeaking from './components/quizes/speaking/QuizSpeaking.jsx';
 
 const routes = createBrowserRouter([
   {   
@@ -46,6 +47,10 @@ const routes = createBrowserRouter([
   {
     path:"/course",
     element: <Course/>
+  },
+  {
+    path:"/course/speaking",
+    element: <QuizSpeaking/>
   }
 
 ]);

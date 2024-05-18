@@ -6,6 +6,7 @@ import Registration from './pages/registration/Registration.jsx'
 
 import QuizeAudio1 from './components/quizes/audio/audio1/QuizeAudio1.jsx';
 import QuizeAudio2 from './components/quizes/audio/audio2/QuizeAudio2.jsx';
+import QuizeGrammar1 from './components/quizes/grammar/grammar1/QuizeGrammar1.jsx'
 
 import Course from './pages/course/Course.jsx';
 
@@ -25,6 +26,10 @@ const routes = createBrowserRouter([
   {
     path:'/course/lesson2',
     element: <QuizeAudio2/>
+  },
+  {
+    path:'/course/lesson3',
+    element: <QuizeGrammar1/>
   },
   // {
   //   path:'/explore',

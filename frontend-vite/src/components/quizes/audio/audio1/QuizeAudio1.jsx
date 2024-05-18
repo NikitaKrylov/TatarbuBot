@@ -29,7 +29,7 @@ const QuizeAudio1 = () => {
     <>
       <main className={styles.mainBlock}>
         <section className={styles.section}>
-          <StepsLine count={5} />
+          <StepsLine count={4} />
           <h5>{question}</h5>
           <figure>
             <img onClick={() => alert('click')} src={src} alt="рисунок Белема" />

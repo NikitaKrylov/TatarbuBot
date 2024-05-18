@@ -5,7 +5,7 @@ import StepsLine from '../../../../components/global/stepsLine/StepsLine';
 import QuizeBottom from '../QuizeBottom';
 
 const QuizeAudio2 = () => {
-  let url = `https://misis52.clayenkitten.ru/api/quizzes/1`;
+  let url = `https://misis52.clayenkitten.ru/api/quizzes/2`;
 
   const [question, setQuestion] = useState('');
   const [inputValue, setInputValue] = useState('');
@@ -43,7 +43,7 @@ const QuizeAudio2 = () => {
             <label htmlFor="">Ничек син дус?</label>
           </div>
         </section>
-        <QuizeBottom onClick={handleClick} numquestion={1} />
+        <QuizeBottom onClick={handleClick} numquestion={2} />
       </main>
     </>
   );

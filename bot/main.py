@@ -41,10 +41,7 @@ async def cmd_start(message: types.Message):
     })
     logging.info(str(created_user))
 
-
-
     return await message.answer(f'Будем знакомы, {message.from_user.first_name or message.from_user.username}, иди учи татарский', reply_markup=inline_keyboard)
-
 
 
 @dp.callback_query(F.data == 'cancel')

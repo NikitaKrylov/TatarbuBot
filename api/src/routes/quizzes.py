@@ -1,7 +1,13 @@
-from fastapi import APIRouter, UploadFile
-from src.schemas.quizzes import QuizOutDTO, AnswerOutDTO, QuizCreateDTO, AnswerCreateDTO, UserAnswerOutDTO, \
-    UserAnswerCreateDTO
+import logging
+from io import BytesIO
+
+import aiohttp
+from fastapi import APIRouter, UploadFile, File
+from googletrans import Translator
+
+from src.schemas.quizzes import QuizOutDTO, QuizCreateDTO, UserAnswerCreateDTO, UserAnswerOutDTO
 from src.repository.quizzes import QuizRepository, UserAnswerRepository, AnswerRepository
+from src.services.audio import speach_to_text
 
 router = APIRouter(
     prefix="/quizzes",
@@ -43,9 +49,15 @@ async def delete_quiz(quiz_id: int):
     await quiz_repository.delete(quiz_id)
 
 
-@router.post('/answer')
-async def apply_quiz_answer(answer_data: UserAnswerCreateDTO):
-    return await user_answers_repository.apply_quiz_answer(answer_data)
+@router.post('/{quiz_id}/audio/apply')
+async def apply_quiz_answer_with_audio(quiz_id: int, tg_user_id: int,  audio_file: UploadFile = File()):
+    file_bytes = await audio_file.read()
+    return await user_answers_repository.apply_quiz_answer_with_audio(file_bytes, quiz_id, tg_user_id)
+
+
+@router.post('/{quiz_id}/apply', response_model=UserAnswerOutDTO)
+async def apply_quiz_answer(quiz_id: int, data: UserAnswerCreateDTO):
+    return await user_answers_repository.apply_quiz_answer(data)
 
 
 @router.post('/{quiz_id}/answers/{answer_id}/image')
@@ -53,14 +65,17 @@ async def change_quiz_answer_image(quiz_id: int, answer_id: int, file: UploadFil
     await answers_repository.set_answer_image(answer_id, file)
 
 
-@router.post('/{quiz_id}/answers/{answer_id}/audio')
+@router.post('/{quiz_id}/answers/{answer_id}/audio', response_model=UserAnswerOutDTO)
 async def change_quiz_answer_audio(quiz_id: int, answer_id: int, file: UploadFile):
     await answers_repository.set_answer_audio(answer_id, file)
 
 
-@router.get('/answers/stats')
-async def get_answers_stats(tg_user_id: int):
-    return await user_answers_repository.get_answers_statistic(tg_user_id)
-
-
+@router.post('test_trans')
+async def test_trans(audio_file: UploadFile = File()):
+    file = await audio_file.read()
+    tt_text = await speach_to_text(file)
+    translator = Translator()
+    translator.detect(tt_text)
+    translated_text = translator.translate(tt_text, dest='ru')
+    return translated_text.text
 

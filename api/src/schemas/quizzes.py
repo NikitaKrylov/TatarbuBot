@@ -24,8 +24,7 @@ class AnswerOutDTO(BaseAnswerDTO):
 
 class BaseQuizDTO(BaseModel):
     name: str
-    tooltip: str | None
-    multiple_answers: bool
+    use_audio_answer: bool
     image: str | None
     audio: str | None
     explanation: str | None
@@ -41,20 +40,24 @@ class QuizOutDTO(BaseQuizDTO):
     answers: list[AnswerOutDTO]
 
 
-class BaseUserAnswerDTO(BaseModel):
+class UserAnswerCreateDTO(BaseModel):
     quiz_id: int
     answer_id: int
     user_id: int
 
 
-class UserAnswerCreateDTO(BaseUserAnswerDTO):
+class UserAnswerOutDTO(BaseModel):
+    user_id: int
+    answer_id: int | None
+    quiz_id: int | None
+    quiz_type: str
+    is_correct: bool
+
+
+class UserAnswerWithAudioCreateDTO(BaseModel):
     pass
 
 
-class UserAnswerOutDTO(BaseUserAnswerDTO):
-    created_at: datetime
-    is_correct: bool
-    quiz_type: QuizType
 
 
 

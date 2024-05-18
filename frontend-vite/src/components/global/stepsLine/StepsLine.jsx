@@ -6,14 +6,13 @@ const StepLine = () => {
     )
 }
 
-const StepsLine = () => {
+const StepsLine = ({count}) => {
     return(
         <>
         <div className={styles.lines}>
-            <StepLine/>
-            <StepLine/>
-            <StepLine/>
-            <StepLine/>
+            {Array.from(Array(count).keys()).map(i => (
+                <StepLine />
+            ))}
         </div>
         </>
     )

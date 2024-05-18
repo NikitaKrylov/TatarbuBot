@@ -15,7 +15,11 @@ async def notify_users():
     users = await api.get_all_users()
 
     for user in users:
-        await bot.send_message(user['tg_chat_id'], "👺 Учи татарский, долбаеб ")
+        try:
+            await bot.send_message(user['tg_chat_id'], "👺 Учи татарский, долбаеб ")
+        except Exception as e:
+            logging.exception(f'Cant sent message to user with id {user.get('tg_chat_id', -1)}', exc_info=True)
+
     return users
 
 
@@ -27,7 +31,7 @@ def test_task():
 app.conf.beat_schedule = {
     'add-every-150-seconds': {
         'task': 'src.workers.app.test_task',
-        'schedule': 150.0
+        'schedule': 300.0
     },
 }
 app.conf.timezone = 'UTC'

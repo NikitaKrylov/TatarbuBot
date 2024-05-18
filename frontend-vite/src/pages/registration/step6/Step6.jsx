@@ -12,7 +12,7 @@ const Step6 = ({onClick}) => {
   return (
     <>
         <section>
-            <StepsLine/>
+            <StepsLine count={4}/>
             <Topic
                 h1='Сколько времени в день ты готов уделять на изучение?'
                 description='Это поможет нам правильно рассчитать нагрузку'

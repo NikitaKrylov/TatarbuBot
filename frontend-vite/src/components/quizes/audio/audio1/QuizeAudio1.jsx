@@ -1,28 +1,45 @@
-import React from 'react'
-import styles from './QuizeAudio1.module.scss'
-import StepsLine from '../../../../components/global/stepsLine/StepsLine'
-import QuizeBottom from '../QuizeBottom'
-
+import React, { useEffect, useState } from 'react';
+import styles from './QuizeAudio1.module.scss';
+import axios from "axios";
+import StepsLine from '../../../../components/global/stepsLine/StepsLine';
+import QuizeBottom from '../QuizeBottom';
 
 const QuizeAudio1 = () => {
-  let question = 'Что говорит Белем?'
-  let url = '#'
+  let url = `https://misis52.clayenkitten.ru/api/quizzes/1`;
+
+  const [question, setQuestion] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let response = await axios.get(url);
+        const data = response.data;
+        setQuestion(data.name);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, [url]);
+
+  let src = '#';
 
   return (
     <>
       <main className={styles.mainBlock}>
         <section className={styles.section}>
-            <StepsLine/>
-            <h5>{question}</h5>
-            <figure>
-              <img onClick={() => alert('click')} src={url} alt="рисунок Белема" />
-              <figcaption>Нажмите, чтобы прослушать</figcaption>
-            </figure>
+          <StepsLine count={5} />
+          <h5>{question}</h5>
+          <figure>
+            <img onClick={() => alert('click')} src={src} alt="рисунок Белема" />
+            <figcaption>Нажмите, чтобы прослушать</figcaption>
+          </figure>
         </section>
-        <QuizeBottom/>
+        <QuizeBottom numquestion={1} />
       </main>
     </>
-  )
-}
+  );
+};
 
-export default QuizeAudio1
+export default QuizeAudio1;

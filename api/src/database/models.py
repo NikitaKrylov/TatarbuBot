@@ -26,12 +26,10 @@ class Quiz(Base):
 
     name: Mapped[str]
     quiz_type: Mapped[QuizType]
-    tooltip: Mapped[str | None] = mapped_column(nullable=True, default=None)
-    multiple_answers: Mapped[bool] = mapped_column(default=False)
     image: Mapped[str | None] = mapped_column(nullable=True, default=None)
     audio: Mapped[str | None] = mapped_column(nullable=True, default=None)
     explanation: Mapped[str | None] = mapped_column(nullable=True, default=None)
-
+    use_audio_answer: Mapped[bool] = mapped_column(default=False)
     answers: Mapped[list['QuizAnswer']] = relationship(uselist=True, lazy='immediate')
 
 
@@ -39,7 +37,6 @@ class QuizAnswer(Base):
     __tablename__ = 'quiz_answers'
 
     quiz_id: Mapped[int] = mapped_column(ForeignKey('quizzes.id', ondelete='CASCADE'))
-
     text: Mapped[str | None] = mapped_column(nullable=True, default=None)
     audio: Mapped[str | None] = mapped_column(nullable=True, default=None)
     image: Mapped[str | None] = mapped_column(nullable=True, default=None)
@@ -52,4 +49,16 @@ class UserAnswer(Base):
     user_id: Mapped[int] = mapped_column(ForeignKey('users.tg_user_id', ondelete='CASCADE'))
     quiz_id: Mapped[int] = mapped_column(ForeignKey('quizzes.id', ondelete='SET NULL'), nullable=True)
     answer_id: Mapped[int] = mapped_column(ForeignKey('quiz_answers.id', ondelete='SET NULL'), nullable=True)
+    is_correct: Mapped[bool]
+    quiz_type: Mapped[QuizType]
     created_at: Mapped[datetime] = mapped_column(default=datetime.now)
+
+
+class Lesson(Base):
+    __tablename__ = 'lessons'
+
+    content: Mapped[str]
+
+    quiz_id: Mapped[int | None] = mapped_column(ForeignKey('quizzes.id', ondelete='SET NULL'), nullable=True)
+    quiz: Mapped[Quiz] = relationship(uselist=False, lazy='immediate')
+

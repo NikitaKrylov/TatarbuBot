@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import StepsLine from '../../../components/global/stepsLine/StepsLine'
 import Topic from '../../../components/registration/topic/Topic'
 import styles from './Step2.module.scss'
@@ -9,12 +9,15 @@ import flagGe from '../../../assets/icons/normal/Flag_Georgia.svg'
 
 import MainButton from '../../../components/global/Button/MainButton'
 
+
+
 const Step2 = ({onClick}) => {
   const [selectedLang, setSelectedLang] = useState(null);
 
   const handleLanguageChange = (lang) => {
     setSelectedLang(lang);
   };
+
 
   const flags = [
     {
@@ -36,6 +39,8 @@ const Step2 = ({onClick}) => {
 
   return (
     <>
+
+
       <div>
         <StepsLine count={4}/>
         <Topic 

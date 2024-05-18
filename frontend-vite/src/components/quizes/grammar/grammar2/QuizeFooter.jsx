@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styles from './QuizeFooter.module.scss';
 import axios from "axios";
 
-const QuizeFooter = ({ numquestion}) => {
+const QuizeFooter = ({ numquestion, onClick}) => {
   const [button1Color, setButton1Color] = useState(null);
-  const [button2Color, setButton2Color] = useState(null);
 
   let url = `https://misis52.clayenkitten.ru/api/quizzes/${numquestion}`;
+  let text1 = 'Сәлам'
 
   const [answer, setAnswer] = useState([]);
 
@@ -28,7 +28,6 @@ const QuizeFooter = ({ numquestion}) => {
   const handleButtonClick = (e) => {
         userAns = e.target.value;
         setButton1Color('#29B393');
-        setButton2Color(null);
   }
 
   let button1Style = {
@@ -38,9 +37,9 @@ const QuizeFooter = ({ numquestion}) => {
 
     return (
       <div className={styles.bottom}>
-      <button onClick={(e) => {handleButtonClick(e)}} style={button1Style}>
-          {text1}
-        </button>
+        <button onClick={(e) => {handleButtonClick(e); onClick(text1)}} style={button1Style}>
+            {text1}
+          </button>
       </div>
     );
   

@@ -4,7 +4,7 @@ import axios from 'axios';
 import StepsLine from '../../../../components/global/stepsLine/StepsLine';
 import QuizeFooter from '../../grammar/grammar1/QuizeFooter';
 
-const QuizeGrammar1 = () => {
+const QuizeGrammar1 = ({onClick}) => {
   let url = `https://misis52.clayenkitten.ru/api/quizzes/2`;
 
   const [question, setQuestion] = useState('');
@@ -33,7 +33,7 @@ const QuizeGrammar1 = () => {
     <>
       <main className={styles.mainBlock}>
         <section className={styles.section}>
-          <StepsLine count={4} />
+          <StepsLine count={9} />
           <h5>Впиши слово, которое пропущено</h5>
           <img src={url} alt="рисунок белема" />
           <div className={styles.questionTatar}>
@@ -41,7 +41,9 @@ const QuizeGrammar1 = () => {
             <label htmlFor="">{question}</label>
           </div>
         </section>
-        <QuizeFooter  numquestion={2}/>
+        <div onClick={onClick}>
+          <QuizeFooter numquestion={1} />
+        </div>
       </main>
     </>
   );

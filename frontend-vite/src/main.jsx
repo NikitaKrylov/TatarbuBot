@@ -11,6 +11,7 @@ import QuizeGrammar2 from './components/quizes/grammar/grammar2/QuizeGrammar2.js
 
 import Course from './pages/course/Course.jsx';
 import QuizSpeaking from './components/quizes/speaking/QuizSpeaking.jsx';
+import Lesson from './pages/lesson/Lesson.jsx';
 
 
 const routes = createBrowserRouter([
@@ -37,6 +38,10 @@ const routes = createBrowserRouter([
   {
     path:'/course/lesson4',
     element: <QuizeGrammar2/>
+  },
+  {
+    path:'/course/lesson_1',
+    element: <Lesson/>
   },
   // {
   //   path:'/explore',

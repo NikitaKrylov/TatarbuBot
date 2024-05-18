@@ -47,11 +47,11 @@ export default function Bottom (){
     },[page])
     
     return (
-        <bottom className={styles.bottom}>
+        <div className={styles.bottom}>
             <a href="#" onClick={()=>{setPage('home');navigate('/');}}><img src={home} alt="home" /></a>
             <a href="#" onClick={()=>setPage('explore')}><img src={explore} alt="explore" /></a>
             <a href="#" onClick={()=>setPage('interesting')}><img src={interesting} alt="interesting" /></a>
             <a href="#" onClick={()=>setPage('profile')}><img src={profile} alt="profile" /></a>
-        </bottom>
+        </div>
     )
 }

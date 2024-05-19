@@ -11,7 +11,7 @@ const Page1 = () => {
     <div className={styles.container}>
       <a href=""><img src={right} alt="" /></a>
       <div>
-        <h2>Сначала <span>прослушай</span> песня <span>и постарайся</span> ее <span>почувствовать</span></h2>
+        <h2>Сначала <span>прослушай</span> песню <span>и постарайся</span> ее <span>почувствовать</span></h2>
         <img src={first}></img>
       </div>
       <MainButton text={'Прослушать песню'} color={'green'}/>

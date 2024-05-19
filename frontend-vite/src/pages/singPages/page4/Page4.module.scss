@@ -23,12 +23,33 @@
     }
 
     section{
-        margin: 100px 28px;
+        margin: 0 28px 140px;
         width: 283px;
         border-radius: 10px;
         transform: translateY(20%);
         font-size: 24px;
         line-height: 32px;
+
+        p{
+            font-size: 24px;
+
+            input{
+                font-size: 20px;
+                display: inline;
+                background-color: #dfdfdf;
+                border-radius: 10px;
+                padding: 8px;
+                max-width: 96px;
+
+            }
+        }
+
+        .btnCheck{
+            font-size: 20px;
+            margin-top: 8px;
+            color: #C68CFF;
+            text-decoration: underline;
+        }
     }
 
     .photo{
@@ -84,12 +105,40 @@
         background-color: #C68CFF;
     }
 
-    button{
+    .playButton{
         display: block;
-        margin: 56px auto 0;
+        margin: 28px auto 0;
         background-color: #C68CFF;
         border-radius: 50%;
         padding: 10px;
         cursor: pointer;
+    }
+}
+
+.timelineAll{
+    margin-bottom: 28px;    
+
+    .time {
+        padding: 10px;
+        max-width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    input {
+        margin-top: 28px;
+        appearance: none;
+        width: 100%;
+        background: #C68CFF;
+        height: 2px;
+
+        &::-webkit-slider-thumb{
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 3px solid #C68CFF;
+            background-color: #fff;
+        }
     }
 }

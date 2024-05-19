@@ -36,11 +36,12 @@
     }
 
     .questionTatar {
-        margin-top: 55px;
+        margin-top: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        height: 200px;
         gap: 12px;
 
         input {

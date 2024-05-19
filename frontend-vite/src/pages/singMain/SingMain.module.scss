@@ -1,0 +1,218 @@
+@import '../../assets/styles/global.scss';
+
+.container {
+    overflow-x: hidden;
+    max-width: 100%;
+    height: 100vh;
+    background-color: #F3F2F0;
+    position: relative;
+
+    main {
+        padding: 24px;
+    }
+
+    h2{
+        font-size: 34px;
+        font-weight: 600;
+        max-width: 235px;
+    }
+    h3 {
+        margin-top: 12px;
+        font-size: 18px;
+        font-weight: 500;
+        max-width: 235px;
+    }
+
+    .podcasts{
+        margin-top: 28px;
+        max-width: 100%;
+        background-color: #fff;
+        border-radius: 12px;
+        padding: 16px;
+        position: relative;
+
+        &::after{
+            content: '';
+            display: inline-block;
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+            background: url('../../assets/icons/stair.svg');
+            background-repeat: no-repeat;
+            width: 22px;
+            height: 18px;
+        }
+
+        h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .left{
+            display: flex;
+            align-items: center;
+            gap: 19px;
+
+            div {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                h5{
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+                h6{
+                    font-size: 14px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+
+    .finder {
+        margin-top: 28px;
+        margin-bottom: 16px;
+        border-radius: 10px;
+        width: 100%;
+        background-color: #fff;
+        padding: 15px 18px;
+        position: relative;
+
+        &::placeholder{
+            opacity: .7;
+            margin-left: 46px;
+
+            &::after{
+                content: '';
+                display: inline-block;
+                position: absolute;
+                top: 12px;
+                left: 16px;
+                background: url('../../assets/icons/search.svg');
+                background-repeat:no-repeat;
+                width: 22px;
+                height: 22px;
+            }
+        }
+    }
+
+    .filter{
+        display: flex;
+        justify-content: space-between;
+        max-width: 100%;
+        margin-bottom: 24px;
+
+        a{
+            padding: 8px 16px;
+            
+            &:hover {
+                border-radius: 12px;
+                background-color: #fff;
+            }
+        }
+    }
+
+    .cards{
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .card{
+            height: 120px;
+            display: flex;
+            justify-content: space-between;
+            border-radius: 12px;
+            padding: 16px;
+            color: #fff;
+            position: relative;
+
+            h2{
+                font-size: 20px;
+                font-weight: 600;
+            }
+
+            p{
+                margin-top: 8px;
+                font-size: 14px;
+                font-weight: 300;
+            }
+
+            div {
+                max-width: 190px;
+            }
+
+            img{
+                position: absolute;
+                bottom: 0;
+                right: 18px;
+            }
+
+            &:first-child{
+                background-color: #29B393;
+            }
+            &:nth-child(2){
+                background-color: #FB9D2F;
+            }
+            &:last-child{
+                background-color: #A247FB;
+            }
+        }
+    }
+
+    .other{
+        margin-top: 32px;
+        max-width: 390px;
+        position: relative;
+
+        .text{
+            min-width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+
+            div {
+                max-width: 264px;
+                display: flex;
+                flex-direction: column;
+
+                h5{
+                    font-size: 24px;
+                    font-weight: 600;
+                    margin-bottom: 8px;
+                }
+                p{
+                    font-size: 14px;
+                    font-weight: 400;
+                }
+            }
+
+            img {
+                max-width: fit-content;
+                display: block;
+                padding: 9px;
+                background-color: #fff;
+                border-radius: 8px;
+            }
+            
+        }
+
+        .cards{
+            max-width: 1000px;
+            display: flex;
+            
+            flex-direction: row;
+            flex-wrap: nowrap;
+
+            div{
+                border-radius: 20px;
+                width: 128px;
+                height: 128px;
+                background-color: $light-yellow;
+            }
+        }
+    }
+}

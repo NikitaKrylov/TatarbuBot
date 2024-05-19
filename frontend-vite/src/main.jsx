@@ -11,6 +11,9 @@ import QuizGrammar2 from './components/quizzes/grammar/grammar2/QuizGrammar2.jsx
 import Course from './pages/course/Course.jsx';
 import QuizSpeaking from './components/quizzes/speaking/QuizSpeaking.jsx';
 import Lesson from './pages/lesson/Lesson.jsx';
+// import Sing from './pages/sing/Sing.jsx';
+import Player from './components/player/Player.jsx'
+import SingMain from './pages/singMain/SingMain.jsx';
 
 
 const routes = createBrowserRouter([
@@ -57,6 +60,14 @@ const routes = createBrowserRouter([
   {
     path:"/course/speaking",
     element: <QuizSpeaking/>
+  },
+  {
+    path:"/singMain",
+    element: <SingMain/>
+  },
+  {
+    path:"/player",
+    element: <Player/>
   }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(

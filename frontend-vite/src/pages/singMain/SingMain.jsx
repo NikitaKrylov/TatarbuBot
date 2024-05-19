@@ -6,10 +6,12 @@ import card2 from '../../assets/icons/card2.svg'
 import card3 from '../../assets/icons/card3.svg'
 import vectorright from '../../assets/icons/vectorright.svg'
 import Bottom from '../../components/global/Bottom/Bottom'
+import { useNavigate } from 'react-router-dom'
 
 function SingMain() {
+    const navigate = useNavigate();
     const [inputValue, setInputValue] = useState('Найти любимую песню')
-  
+    
     return (
     <>
     <div className={styles.container}>
@@ -18,7 +20,7 @@ function SingMain() {
                 <h2>Дулкында</h2>
                 <h3>Изучай язык, прослушивая и исполняя любимые хиты</h3>
             </>
-            <a href="#">
+            <a href="#" onClick={()=>navigate("/sing/page_1")}>
                 <div className={styles.podcasts}>
                     <h4>Сегодня на репите</h4>
                     <div className={styles.left}>

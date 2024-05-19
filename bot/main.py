@@ -7,6 +7,7 @@ from aiogram.types.menu_button_web_app import MenuButtonWebApp
 from aiogram.types.inline_keyboard_button import InlineKeyboardButton
 from aiogram.types.inline_keyboard_markup import InlineKeyboardMarkup
 from src.shared.config import config
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 from src.repository.api import APIRepository
 from src.routes.trains import router as trains_router
 from aiogram.enums.parse_mode import ParseMode
@@ -31,12 +32,19 @@ async def cmd_start(message: types.Message):
     inline_keyboard = InlineKeyboardMarkup(
         inline_keyboard=[[
             InlineKeyboardButton(text='📝 Заполнить', web_app=web_app_reg),
+            InlineKeyboardButton(text='📖 К уроку', web_app=web_app_main),
         ]]
     )
+    # reply_kb = ReplyKeyboardMarkup(
+    #     keyboard=[[
+    #         KeyboardButton(text='К уроку', web_app=web_app_main)
+    #     ]],
+    #     resize_keyboard=True
+    # )
     existed_user = await api.get_user_by_tg_id(message.from_user.id)
     logging.info(str(existed_user))
     if existed_user:
-        return await message.answer(f'Привет, {message.from_user.first_name or message.from_user.username}, я уже знаю тебя. Нажми на кнопку, если хочешь обновить данные о себе.')
+        return await message.answer(f'Привет, {message.from_user.first_name or message.from_user.username}, я уже знаю тебя. Нажми на кнопку, если хочешь обновить данные о себе.', reply_markup=inline_keyboard)
 
     created_user = await api.create_user({
         'tg_user_id': message.from_user.id,

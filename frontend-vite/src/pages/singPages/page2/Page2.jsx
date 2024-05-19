@@ -38,6 +38,7 @@ const Page2 = () => {
       }); 
     
       const [seconds, setSeconds] = useState(); 
+      const navigate = useNavigate();
 
        useEffect(() => {
           if (duration) {
@@ -67,60 +68,65 @@ const Page2 = () => {
         }, [sound]);
 
   return (
-    <div className={styles.container}>
-      <a onClick={()=>navigate(-1)} className={styles.prev} href="#"><img src={right} alt="" /></a>
-      <section>
-        <img src={hamster} className={styles.photo} alt="hamster" />
-        
-        <div className={styles.song}>
-          <div><img className={styles.author} src={author} alt="song_img" /></div>
-          <div className={styles.song_name}>
-            <div>
-              <h3>Сэлэм юллыйм</h3>
-              <p>Ришат Тухватуллин</p>
-            </div>
-            <a href="#"><img src={share} alt="share width..." /></a>
-          </div>
-        </div>
 
-        
-          <div className={styles.timelineAll}>
-            <input
-              type="range"
-              min="0"
-              max={duration / 1000}
-              default="0"
-              value={seconds}
-              className={styles.timeline}
-              onChange={(e) => {
-                sound.seek([e.target.value]);
-                }}
-              />
-              <div className={styles.time}>
-                <p>
-                  {currTime.min}:{currTime.sec}
-                </p>
-                <p>
-                  {time.min}:{time.sec}
-                </p>
-              </div>
-        </div>
-
-        
-        <div >
-        {!isPlaying ? (
-          <button className={styles.playButton} onClick={playingButton}>
-              <img src={played} alt="pause" />
-          </button>
-        ) : (
-          <button className={styles.playButton} onClick={playingButton}>
-              <img src={paused} alt="play" />
-          </button>
-        )}
+    <main className={styles.main}>
+      <div className={styles.container}>
+        <a className={styles.prev} onClick={()=>navigate(-1)} href="#"><img src={right} alt="" /></a>
+        <a className={styles.prevr} onClick={()=>navigate('/sing/page_3')} href="#"><img src={right} alt="" /></a>
+        <section>
+          <img src={hamster} className={styles.photo} alt="hamster" />
           
-        </div>
-      </section>
-    </div>
+          <div className={styles.song}>
+            <div><img className={styles.author} src={author} alt="song_img" /></div>
+            <div className={styles.song_name}>
+              <div>
+                <h3>Сэлэм юллыйм</h3>
+                <p>Ришат Тухватуллин</p>
+              </div>
+              <a href="#"><img src={share} alt="share width..." /></a>
+
+            </div>
+          </div>
+
+          
+            <div className={styles.timelineAll}>
+              <input
+                type="range"
+                min="0"
+                max={duration / 1000}
+                default="0"
+                value={seconds}
+                className={styles.timeline}
+                onChange={(e) => {
+                  sound.seek([e.target.value]);
+                  }}
+                />
+                <div className={styles.time}>
+                  <p>
+                    {currTime.min}:{currTime.sec}
+                  </p>
+                  <p>
+                    {time.min}:{time.sec}
+                  </p>
+                </div>
+          </div>
+
+          
+          <div >
+          {!isPlaying ? (
+            <button className={styles.playButton} onClick={playingButton}>
+                <img src={played} alt="pause" />
+            </button>
+          ) : (
+            <button className={styles.playButton} onClick={playingButton}>
+                <img src={paused} alt="play" />
+            </button>
+          )}
+            
+          </div>
+        </section>
+      </div>
+    </main>
   )
 }
 

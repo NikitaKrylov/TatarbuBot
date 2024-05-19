@@ -7,15 +7,19 @@ import { useNavigate } from 'react-router-dom'
 
 const Page1 = () => {
 
+  const navigate = useNavigate();
   return (
-    <div className={styles.container}>
-      <a href=""><img src={right} alt="" /></a>
-      <div>
-        <h2>Сначала <span>прослушай</span> песню <span>и постарайся</span> ее <span>почувствовать</span></h2>
-        <img src={first}></img>
+    <main className={styles.main}>
+      <div className={styles.container}>
+        <a href=""><img src={right} alt="" /></a>
+        <div>
+          <h2>Сначала <span>прослушай</span> песню <span>и постарайся</span> ее <span>почувствовать</span></h2>
+          <img src={first}></img>
+        </div>
+        <MainButton text={'Прослушать песню'} color={'green'} onClick={()=>navigate("/sing/page_2")}/>
+
       </div>
-      <MainButton text={'Прослушать песню'} color={'green'}/>
-    </div>
+    </main>
   )
 }
 

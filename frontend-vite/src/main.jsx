@@ -30,33 +30,9 @@ const routes = createBrowserRouter([
     element: <Registration/>
   },
   {
-    path:'/course/lesson1',
-    element: <QuizAudio1/>
-  },
-  {
-    path:'/course/lesson3',
-    element: <QuizGrammar1/>
-  },
-  {
-    path:'/course/lesson4',
-    element: <QuizGrammar2/>
-  },
-  {
     path:'/course/lesson_1',
     element: <Lesson/>
   },
-  // {
-  //   path:'/explore',
-  //   element:<Explore/>
-  // },
-  // {
-  //   path: '/interesting',
-  //   element:<Dictionary />
-  // },
-  // {
-  //   path: '/profile',
-  //   element:<Profile/>
-  // }
   {
     path:"/course",
     element: <Course/>

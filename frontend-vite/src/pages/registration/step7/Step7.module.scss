@@ -11,9 +11,19 @@
     right: 0;
     left: 0;
 
+    h2{
+        max-width: 222px;
+        margin-top: 40px;
+        font-weight: 600;
+        font-size: 24px;
+
+        span {
+            color: #29B393;
+        }
+    }
+
     .img {
         min-width: 100%;
-        margin-top: 130px;
         background-color: rgb(224, 224, 224);
         border-radius: 10px;
         max-width: 200px;

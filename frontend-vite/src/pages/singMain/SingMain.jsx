@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './SingMain.module.scss'
-import man from '../../assets/icons/man.svg'
+import man from '../../assets/images_course/sing.svg'
 import card1 from '../../assets/icons/card1.svg'
 import card2 from '../../assets/icons/card2.svg'
 import card3 from '../../assets/icons/card3.svg'
@@ -15,7 +15,7 @@ function SingMain() {
     <div className={styles.container}>
         <main>
             <>
-                <h2>На волне</h2>
+                <h2>Дулкында</h2>
                 <h3>Изучай язык, прослушивая и исполняя любимые хиты</h3>
             </>
             <a href="#">
@@ -24,8 +24,8 @@ function SingMain() {
                     <div className={styles.left}>
                         <img src={man} alt="" />
                         <div>
-                            <h5>Рэхмэт</h5>
-                            <h6>Ильназ Сафиулин</h6>
+                            <h5>Сэлэм юллыйм</h5>
+                            <h6>Ришат Тухватуллин</h6>
                         </div>
                     </div>
                 </div>

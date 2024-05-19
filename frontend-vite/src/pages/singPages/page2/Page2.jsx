@@ -1,11 +1,12 @@
 import React from 'react'
 import { useEffect, useState } from "react"; 
 import useSound from "use-sound"; 
-import qala from '../../../assets/music/tatar.mp3'
+import qala from '../../../assets/music/tatarcha.mp3';
 
 import styles from './Page2.module.scss'
 import right from '../../../assets/icons/right.svg'
-import hamster from '../../../assets/icons/Rectangle_hamster.svg'
+import hamster from '../../../assets/images_course/sing.jpg'
+import author from '../../../assets/images_course/author.jpg'
 import share from '../../../assets/icons/share2.svg'
 import played from '../../../assets/icons/play.svg'
 import paused from '../../../assets/icons/pause.svg'
@@ -70,11 +71,11 @@ const Page2 = () => {
         <img src={hamster} className={styles.photo} alt="hamster" />
         
         <div className={styles.song}>
-          <img src={hamster} alt="song_img" />
+          <div><img className={styles.author} src={author} alt="song_img" /></div>
           <div className={styles.song_name}>
             <div>
-              <h3>Вместе мы сила</h3>
-              <p>Черная экономика</p>
+              <h3>Сэлэм юллыйм</h3>
+              <p>Ришат Тухватуллин</p>
             </div>
             <a href="#"><img src={share} alt="share width..." /></a>
           </div>

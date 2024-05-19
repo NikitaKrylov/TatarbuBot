@@ -6,6 +6,7 @@ import first from '../../../assets/images_course/1.jpg'
 import { useNavigate } from 'react-router-dom'
 
 const Page1 = () => {
+
   const navigate = useNavigate();
   return (
     <main className={styles.main}>
@@ -16,6 +17,7 @@ const Page1 = () => {
           <img src={first}></img>
         </div>
         <MainButton text={'Прослушать песню'} color={'green'} onClick={()=>navigate("/sing/page_2")}/>
+
       </div>
     </main>
   )

@@ -16,6 +16,7 @@ const Page2 = () => {
 
     const [isPlaying, setIsPlaying] = useState(false);
     const [play, { pause, duration, sound }] = useSound(qala);
+    const navigate = useNavigate()
 
     const playingButton = () => {
         if (isPlaying) {
@@ -67,6 +68,7 @@ const Page2 = () => {
         }, [sound]);
 
   return (
+
     <main className={styles.main}>
       <div className={styles.container}>
         <a className={styles.prev} onClick={()=>navigate(-1)} href="#"><img src={right} alt="" /></a>
@@ -82,6 +84,7 @@ const Page2 = () => {
                 <p>Ришат Тухватуллин</p>
               </div>
               <a href="#"><img src={share} alt="share width..." /></a>
+
             </div>
           </div>
 

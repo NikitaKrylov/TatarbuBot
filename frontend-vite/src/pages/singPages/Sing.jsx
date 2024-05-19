@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Sing.module.scss'
-import { createBrowserRouter, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, useNavigate} from "react-router-dom";
 
 import Page1 from './page1/Page1'
 import Page2 from './page2/Page2'
@@ -11,7 +11,7 @@ const routes = createBrowserRouter([
   
 
 ]);
-
+const navigate = useNavigate();
 
 const Sing = () => {
   return (

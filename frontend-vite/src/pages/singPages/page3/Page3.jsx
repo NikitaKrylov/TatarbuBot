@@ -6,6 +6,7 @@ import mascot from '../../../assets/images_course/2.jpg'
 import { useNavigate } from 'react-router-dom'
 
 const Page3 = () => {
+
   const navigate = useNavigate();
   return (
     <main className={styles.main}>
@@ -18,6 +19,7 @@ const Page3 = () => {
           <MainButton text={'Начать'} color={'green'} onClick={()=>navigate("/sing/page_4")}/>
       </div>
     </main>
+
   )
 }
 

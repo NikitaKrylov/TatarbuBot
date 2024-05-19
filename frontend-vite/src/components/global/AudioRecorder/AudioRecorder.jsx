@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import cls from './AudioRecorder.module.scss';
 import mic from '../../../assets/icons/normal/mic.svg';
@@ -9,7 +9,9 @@ const AudioRecorder = ({ QZID, onUploadSuccess }) => {
   const [buttonColor, setButtonColor] = useState(''); // New state for button color
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
-
+  useEffect(()=>{
+    setButtonColor('#A247FB')
+  },[QZID])
   const startRecording = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });

@@ -39,7 +39,13 @@ const Lesson = () => {
 
     fetchData();
   }, [URL]);
-
+  const handleUploadSuccess = (responseData) => {
+    if (responseData.is_correct) {
+      setTimeout(() => {
+        setStep((prev) => prev + 1);
+      }, 3000);
+    }
+  };
   const onBottomComponentClick = (answer, isCorrectAnswer) => {
     setAnswer(answer);
     
@@ -55,7 +61,7 @@ const Lesson = () => {
   }
 
   useEffect(() => {
-    if (step === 12) {
+    if (step === 14) {
       navigate('/course');
     }
   }, [step, navigate]);
@@ -75,19 +81,25 @@ const Lesson = () => {
     case 3:
       return <Part_3 onCliks={()=>setStep(step+1)}/>
     case 4:
-      return <QuizAudio1 num={0} currentAnswer={answer} isCorrect={isCorrect} answerData={{ answer, isCorrect }} data={data} bottom={<QuizBottom1 num={0} data={data} onClick={onBottomComponentClick} answer={data.quizzes?.[0].answers?.[0]?.text} />} txt={data.quizzes?.[0]?.text}  />;
+      return <QuizAudio1 num={0} currentAnswer={answer} isCorrect={isCorrect} answerData={{ answer, isCorrect }} data={data} bottom={<QuizBottom1 num={0} data={data} onClick={onBottomComponentClick} answer={data.quizzes?.[0]?.answers?.[0]?.text} />} txt={data.quizzes?.[0]?.text}  />;
     case 5:
-      return <QuizAudio1 num={1} currentAnswer={answer} isCorrect={isCorrect} answerData={{ answer, isCorrect }} data={data} bottom={<QuizBottom1 num={1} data={data} onClick={onBottomComponentClick} answer={data.quizzes?.[1].answers?.[0]?.text} />} txt={data.quizzes?.[1]?.text} />;
+      return <QuizAudio1 num={1} currentAnswer={answer} isCorrect={isCorrect} answerData={{ answer, isCorrect }} data={data} bottom={<QuizBottom1 num={1} data={data} onClick={onBottomComponentClick} answer={data.quizzes?.[1]?.answers?.[0]?.text} />} txt={data.quizzes?.[1]?.text} />;
     case 6:
       return <Part_4 onCliks={()=>setStep(step+1)}/>
     case 7:
-      return <QuizSpeaking/>
+      return <QuizAudio2 num={2} currentAnswer={answer} isCorrect={isCorrect} data={data} bottom={<QuizBottom2 num={2} data={data} onClick={onBottomComponentClick} />} txt={data.quizzes?.[2]?.text}/>
     case 8:
-      return <QuizGrammar2 onClicked={onBottomComponentClick} />;
+      return <QuizAudio2 num={3} currentAnswer={answer} isCorrect={isCorrect} data={data} bottom={<QuizBottom2 num={3} data={data} onClick={onBottomComponentClick} />} txt={data.quizzes?.[3]?.text}/>
     case 9:
-      return <QuizSpeaking onClicked={onBottomComponentClick} />;
+      return <QuizAudio1 num={4} currentAnswer={answer} isCorrect={isCorrect} answerData={{ answer, isCorrect }} data={data} bottom={<QuizBottom1 num={4} data={data} onClick={onBottomComponentClick} answer={data.quizzes?.[4]?.answers?.[0]?.text} />} txt={data.quizzes?.[4]?.text} />;
     case 10:
-      return <QuizAudio1 onClicked={onBottomComponentClick} />;
+      return <QuizAudio1 num={5} currentAnswer={answer} isCorrect={isCorrect} answerData={{ answer, isCorrect }} data={data} bottom={<QuizBottom1 num={5} data={data} onClick={onBottomComponentClick} answer={data.quizzes?.[5]?.answers?.[0]?.text} />} txt={data.quizzes?.[5]?.text} />;
+    case 11:
+      return <QuizSpeaking num={6} data={data} onUploadSuccess={handleUploadSuccess} />;
+    case 12:
+      return <QuizSpeaking num={7} data={data} onUploadSuccess={handleUploadSuccess} />;
+    case 13:
+      return <QuizAudio1 num={8} currentAnswer={answer} isCorrect={isCorrect} answerData={{ answer, isCorrect }} data={data} bottom={<QuizBottom1 num={8} data={data} onClick={onBottomComponentClick} answer={data.quizzes?.[8]?.answers?.[0]?.text} />} txt={data.quizzes?.[8]?.text} />;
     default:
       return <QuizAudio1 onClicked={onBottomComponentClick} />;
   }

@@ -29,6 +29,13 @@ const QuizBottom2 = ({ num, data, onClick }) => {
     }
   }, [isButtonClicked, onClick]);
 
+  // Reset button colors and clicked state when num or data changes
+  useEffect(() => {
+    setButtonColor1(null);
+    setButtonColor2(null);
+    setIsButtonClicked(false);
+  }, [num, data]);
+
   return (
     <div className={styles.bottom}>
       <button onClick={() => handleClick(0)} style={{ backgroundColor: buttonColor1 }}>

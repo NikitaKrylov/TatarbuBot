@@ -3,9 +3,10 @@ import axios from 'axios';
 import cls from './AudioRecorder.module.scss';
 import mic from '../../../assets/icons/normal/mic.svg';
 
-const AudioRecorder = ({numm, translate}) => {
+const AudioRecorder = ({ QZID, onUploadSuccess }) => {
   const [isRecording, setIsRecording] = useState(false);
   const [audioURL, setAudioURL] = useState('');
+  const [buttonColor, setButtonColor] = useState(''); // New state for button color
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
 
@@ -43,15 +44,27 @@ const AudioRecorder = ({numm, translate}) => {
 
   const postRecording = async (audioBlob) => {
     const formData = new FormData();
-    formData.append('file', audioBlob, 'recording.ogg');
+    formData.append('audio_file', audioBlob, 'recording.ogg');
 
     try {
-      const response = await axios.post('/api/upload', formData, {
+      const response = await axios.post(`https://misis52.clayenkitten.ru/api/quizzes/${QZID}/audio/apply?tg_user_id=1`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
       console.log('Upload successful:', response.data);
+
+      // Update button color based on response
+      if (response.data.is_correct) {
+        setButtonColor('#29B393'); // Green for correct
+      } else {
+        setButtonColor('#FF0000'); // Red for incorrect
+      }
+
+      // Call the callback function with the response data
+      if (onUploadSuccess) {
+        onUploadSuccess(response.data);
+      }
     } catch (error) {
       console.error('Error uploading recording:', error);
     }
@@ -63,6 +76,7 @@ const AudioRecorder = ({numm, translate}) => {
         className={cls.btn}
         onTouchStart={startRecording}
         onTouchEnd={stopRecording}
+        style={{ backgroundColor: buttonColor }} // Set button color
       >
         <img src={mic} alt="microphone" />
       </button>

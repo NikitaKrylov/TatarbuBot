@@ -19,8 +19,6 @@
     }
 
     .figure {
-        width: 200px;
-        height: 200px;
         align-self: center;
         img {
             width: 100%;
@@ -42,6 +40,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         gap: 12px;
 
         input {

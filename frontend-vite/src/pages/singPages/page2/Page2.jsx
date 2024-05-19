@@ -16,7 +16,6 @@ const Page2 = () => {
 
     const [isPlaying, setIsPlaying] = useState(false);
     const [play, { pause, duration, sound }] = useSound(qala);
-    const navigate = useNavigate()
 
     const playingButton = () => {
         if (isPlaying) {

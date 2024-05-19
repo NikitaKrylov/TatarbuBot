@@ -11,6 +11,7 @@ import share from '../../../assets/icons/share2.svg'
 import played from '../../../assets/icons/play.svg'
 import paused from '../../../assets/icons/pause.svg'
 import { useNavigate } from 'react-router-dom';
+import MainButton from '../../../components/global/Button/MainButton';
 
 const Page2 = () => {
 
@@ -70,9 +71,9 @@ const Page2 = () => {
 
     <main className={styles.main}>
       <div className={styles.container}>
-        <a className={styles.prev} onClick={()=>navigate(-1)} href="#"><img src={right} alt="" /></a>
-        <a className={styles.prevr} onClick={()=>navigate('/sing/page_3')} href="#"><img src={right} alt="" /></a>
-        <section>
+        <a className={styles.prev} onClick={()=>navigate("/singMain")} href="#"><img src={right} alt="" /></a>
+        <h1 className={styles.title}><span className={styles.greened}>Прослушайте</span> песню или сразу <span className={styles.greened}>перейдите к практике</span></h1>
+        <div className={styles.section}>
           <img src={hamster} className={styles.photo} alt="hamster" />
           
           <div className={styles.song}>
@@ -109,9 +110,6 @@ const Page2 = () => {
                   </p>
                 </div>
           </div>
-
-          
-          <div >
           {!isPlaying ? (
             <button className={styles.playButton} onClick={playingButton}>
                 <img src={played} alt="pause" />
@@ -121,10 +119,10 @@ const Page2 = () => {
                 <img src={paused} alt="play" />
             </button>
           )}
-            
-          </div>
-        </section>
+        </div>
+        <MainButton text={"ПЕРЕЙТИ К ПРАКТИКЕ"} color={"violet"} onClick={()=>navigate("/sing/page_3")}/>
       </div>
+      
     </main>
   )
 }

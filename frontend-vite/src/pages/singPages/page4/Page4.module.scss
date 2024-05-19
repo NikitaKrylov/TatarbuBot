@@ -6,10 +6,15 @@
     background-color: #fff;
     position: relative;
     line-height: 24px;
-
+    .prev{
+        position: absolute;
+        left: 0%;
+    }
 
 
     .container{
+        display: flex;
+        flex-direction: column;
         max-width: 100%;
         position: absolute;
         right: 25px;
@@ -17,13 +22,17 @@
         bottom: 32px;
         top: 32px;
         line-height: 24px;
+        margin-top: 10px;
+        h2{
+            margin: 30px;
+        }
+        
 
 
-    section{
-        margin: 0 28px 140px;
+    .section{
+        margin: 0 28px 100px;
         width: 283px;
         border-radius: 10px;
-        transform: translateY(20%);
         font-size: 24px;
         line-height: 32px;
 
@@ -51,7 +60,7 @@
 
 
         h2{
-            margin: 62px auto 0;
+            margin: 20px ;
             font-size: 24px;
             font-weight: 600;
         }
@@ -120,18 +129,20 @@
 
 
     .playButton{
-        display: block;
-        margin: 28px auto 0;
+        width: 54px;
+        height: 54px;
+        align-self: center;
+        margin-top: -20px;
         background-color: #C68CFF;
         border-radius: 50%;
         padding: 10px;
+        margin-bottom: 30px;
         cursor: pointer;
 
     }
 }
 
-.timelineAll{
-    margin-bottom: 28px;    
+.timelineAll{    
 
     .time {
         padding: 10px;

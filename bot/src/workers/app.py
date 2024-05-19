@@ -1,4 +1,5 @@
 import logging
+from datetime import datetime
 
 from celery import Celery
 from src.repository.api import APIRepository
@@ -28,10 +29,12 @@ def test_task():
     return loop.run_until_complete(notify_users())
 
 
-app.conf.beat_schedule = {
-    'add-every-150-seconds': {
-        'task': 'src.workers.app.test_task',
-        'schedule': 300.0
-    },
-}
+test_task.apply_async(eta=datetime(2024, 5, 19, 6, 15))
+
+# app.conf.beat_schedule = {
+#     'add-every-150-seconds': {
+#         'task': 'src.workers.app.test_task',
+#         'schedule': 300.0
+#     },
+# }
 app.conf.timezone = 'UTC'

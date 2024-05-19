@@ -7,7 +7,7 @@
 }
 
 .section {
-    padding: 38px 18px;
+    padding: 35px 18px;
     display: flex;
     flex-direction: column;
 
@@ -15,12 +15,12 @@
     h5{
         font-size: 24px;
         font-weight: 600;
-        margin: 34px 0;
+        margin: 25px 0;
     }
 
     .figure {
-        width: 200px;
-        height: 240px;
+        width: 150px;
+        height: 190px;
         align-self: center;
         img {
             width: 100%;
@@ -38,11 +38,12 @@
     }
 
     .questionTatar {
-        margin-top: 75px;
+        margin-top: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        height: 200px;
         gap: 12px;
         .para{
             display: flex;

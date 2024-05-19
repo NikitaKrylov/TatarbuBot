@@ -62,25 +62,25 @@ services:
       - api
       - redis
 
-  worker:
-    container_name: worker
-    restart: unless-stopped
-    command: celery -A src.workers.app:app worker -l INFO
-    build:
-      context: bot
-      dockerfile: bot.dockerfile
-    depends_on:
-      - tg-bot
-
-  celery-beat:
-    container_name: celery-beat
-    restart: unless-stopped
-    command: celery -A src.workers.app:app beat -l INFO
-    build:
-      context: bot
-      dockerfile: bot.dockerfile
-    depends_on:
-      - tg-bot
+#  worker:
+#    container_name: worker
+#    restart: unless-stopped
+#    command: celery -A src.workers.app:app worker -l INFO
+#    build:
+#      context: bot
+#      dockerfile: bot.dockerfile
+#    depends_on:
+#      - tg-bot
+#
+#  celery-beat:
+#    container_name: celery-beat
+#    restart: unless-stopped
+#    command: celery -A src.workers.app:app beat -l INFO
+#    build:
+#      context: bot
+#      dockerfile: bot.dockerfile
+#    depends_on:
+#      - tg-bot
 volumes:
   caddy_data:
   caddy_config:

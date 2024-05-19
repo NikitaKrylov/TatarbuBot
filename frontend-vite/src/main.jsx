@@ -12,8 +12,9 @@ import QuizeGrammar2 from './components/quizes/grammar/grammar2/QuizeGrammar2.js
 import Course from './pages/course/Course.jsx';
 import QuizSpeaking from './components/quizes/speaking/QuizSpeaking.jsx';
 import Lesson from './pages/lesson/Lesson.jsx';
-import Sing from './pages/sing/Sing.jsx';
+// import Sing from './pages/sing/Sing.jsx';
 import Player from './components/player/Player.jsx'
+import SingMain from './pages/singMain/SingMain.jsx';
 
 
 const routes = createBrowserRouter([
@@ -66,8 +67,8 @@ const routes = createBrowserRouter([
     element: <QuizSpeaking/>
   },
   {
-    path:"/sing",
-    element: <Sing/>
+    path:"/singMain",
+    element: <SingMain/>
   },
   {
     path:"/player",

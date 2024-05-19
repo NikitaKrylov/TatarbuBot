@@ -12,9 +12,13 @@ import QuizeGrammar2 from './components/quizes/grammar/grammar2/QuizeGrammar2.js
 import Course from './pages/course/Course.jsx';
 import QuizSpeaking from './components/quizes/speaking/QuizSpeaking.jsx';
 import Lesson from './pages/lesson/Lesson.jsx';
-// import Sing from './pages/sing/Sing.jsx';
-import Player from './components/player/Player.jsx'
 import SingMain from './pages/singMain/SingMain.jsx';
+import Page1 from './pages/singPages/page1/Page1.jsx';
+import Page2 from './pages/singPages/page2/Page2.jsx';
+import Page3 from './pages/singPages/page3/Page3.jsx';
+import Page4 from './pages/singPages/page4/Page4.jsx';
+
+
 
 
 const routes = createBrowserRouter([
@@ -70,10 +74,22 @@ const routes = createBrowserRouter([
     path:"/singMain",
     element: <SingMain/>
   },
-  {
-    path:"/player",
-    element: <Player/>
-  }
+  {   
+    path: '/sing/page_1',
+    element: <Page1/>
+  },
+  {   
+      path: '/sing/page_2',
+      element: <Page2/>
+  },
+  {   
+      path: '/sing/page_3',
+      element: <Page3/>
+  },
+  {   
+      path: '/sing/page_4',
+      element: <Page4/>
+  },
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

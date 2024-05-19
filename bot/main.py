@@ -67,7 +67,6 @@ async def process_cancel_state(callback: types.CallbackQuery, state: FSMContext)
 
 # Запуск процесса поллинга новых апдейтов
 async def main():
-    dp.include_router(trains_router)
     await bot.set_chat_menu_button(menu_button=MenuButtonWebApp(
         text="Урок",
         web_app=web_app_main

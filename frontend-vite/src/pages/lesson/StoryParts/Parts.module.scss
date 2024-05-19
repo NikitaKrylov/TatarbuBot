@@ -1,0 +1,23 @@
+body{
+    background-color: #FFFFFF;
+    border: none;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    background-color: #FFFFFF;
+    align-items: center;
+    padding: 25px;
+    .text{
+        font-weight: 600;
+        font-size: 24px;
+        color: #000000;
+        .greened{
+            color: #29B393;
+        }
+    }
+    button{
+        padding-bottom: 10px;
+    }
+}

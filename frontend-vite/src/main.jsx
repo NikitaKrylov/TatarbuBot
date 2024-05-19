@@ -4,13 +4,12 @@ import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import Home from './pages/home/Home.jsx'
 import Registration from './pages/registration/Registration.jsx'
 
-import QuizeAudio1 from './components/quizes/audio/audio1/QuizeAudio1.jsx';
-import QuizeAudio21 from './components/quizes/audio/audio21/QuizeAudio21.jsx';
-import QuizeGrammar1 from './components/quizes/grammar/grammar1/QuizeGrammar1.jsx'
-import QuizeGrammar2 from './components/quizes/grammar/grammar2/QuizeGrammar2.jsx'
+import QuizAudio1 from './components/quizzes/audio/Audio_1/QuizAudio1.jsx';
+import QuizGrammar1 from './components/quizzes/grammar/grammar1/QuizGrammar1.jsx'
+import QuizGrammar2 from './components/quizzes/grammar/grammar2/QuizGrammar2.jsx'
 
 import Course from './pages/course/Course.jsx';
-import QuizSpeaking from './components/quizes/speaking/QuizSpeaking.jsx';
+import QuizSpeaking from './components/quizzes/speaking/QuizSpeaking.jsx';
 import Lesson from './pages/lesson/Lesson.jsx';
 
 
@@ -25,19 +24,15 @@ const routes = createBrowserRouter([
   },
   {
     path:'/course/lesson1',
-    element: <QuizeAudio1/>
-  },
-  {
-    path:'/course/lesson2',
-    element: <QuizeAudio21/>
+    element: <QuizAudio1/>
   },
   {
     path:'/course/lesson3',
-    element: <QuizeGrammar1/>
+    element: <QuizGrammar1/>
   },
   {
     path:'/course/lesson4',
-    element: <QuizeGrammar2/>
+    element: <QuizGrammar2/>
   },
   {
     path:'/course/lesson_1',

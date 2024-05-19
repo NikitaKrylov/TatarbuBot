@@ -6,9 +6,8 @@ import belem from '../../../assets/images_course/1lesson.png'
 import speaker from '../../../assets/icons/sound.svg'
 import audio_test from '../../../assets/audio_test/audio.ogg'
 import { useRef } from 'react'
-const QuizSpeaking=()=>{
-  let word ="Рәхим итегез!";
-  let translate = "Добро пожаловать!"
+const QuizSpeaking=({aud, photo, num, name, answer})=>{
+  
   const audioRef = useRef(null);
 
   const handlePlaySound = () => {
@@ -21,7 +20,7 @@ const QuizSpeaking=()=>{
     <main className={cls.mainBlock}>
         <section className={cls.section}>
           <StepsLine count={9} />
-          <h5>Слушай и повторяй</h5>
+          <h5>{name}</h5>
           <figure>
             <img onClick={() => alert('click')} src={belem} alt="рисунок Белема" />
             <figcaption>Нажмите, чтобы прослушать</figcaption>
@@ -32,11 +31,11 @@ const QuizSpeaking=()=>{
             <div className={cls.btn_icon} >
               <img src={speaker} alt='speaker'/>
             </div>
-            <span>{word}</span>
+            <span>{answer}</span>
           </button>
           <span className={cls.trans}>{translate}</span>
           <audio ref={audioRef} src={audio_test} />
-          <AudioRecorder/>
+          <AudioRecorder numm={num} translate={answer}/>
         </div>
         
       </main>

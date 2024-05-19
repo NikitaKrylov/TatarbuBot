@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import styles from './QuizeGrammar2.module.scss';
+import styles from './QuizGrammar2.module.scss';
 import axios from "axios";
 import StepsLine from '../../../global/stepsLine/StepsLine';
-import QuizeFooter from './QuizeFooter';
+import QuizFooter from './QuizFooter';
 
-const QuizeGrammar2 = ({onClick}) => {
+const QuizGrammar2 = ({onClick}) => {
   let url = `https://misis52.clayenkitten.ru/api/quizzes/2`;
 
   useEffect(() => {
@@ -38,11 +38,11 @@ const QuizeGrammar2 = ({onClick}) => {
           <input type="text" value={inputValue} />
         </section>
         <div onClick={onClick}>
-          <QuizeFooter onClick={handleClick} numquestion={2} />
+          <QuizFooter onClick={handleClick} numquestion={2} />
         </div>
       </main>
     </>
   );
 };
 
-export default QuizeGrammar2;
+export default QuizGrammar2;

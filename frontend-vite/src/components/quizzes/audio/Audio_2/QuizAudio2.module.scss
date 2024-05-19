@@ -20,7 +20,7 @@
 
     .figure {
         width: 200px;
-        height: 200px;
+        height: 240px;
         align-self: center;
         img {
             width: 100%;
@@ -38,12 +38,18 @@
     }
 
     .questionTatar {
-        margin-top: 55px;
+        margin-top: 75px;
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         gap: 12px;
-
+        .para{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap:24px;
+        }
         input {
             text-align: center;
             padding: 8px 12px;
@@ -52,5 +58,13 @@
             background-color: $light-gray;
             border-radius: 10px;
         }
+    }
+    .translate{
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 19.54px;
+        letter-spacing: 0.005em;
+        text-align: center;
+
     }
 }

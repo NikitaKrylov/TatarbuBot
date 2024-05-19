@@ -7,13 +7,14 @@ const QuizAudio1 = ({ data, bottom, currentAnswer = '', isCorrect = false, num})
   const [photo, setPhoto] = useState(null);
   const [txt, setText] = useState(null);
   const [name, setName] = useState(null);
-
+  const [turus,setTurus] = useState(null);
   useEffect(() => {
     if (data) {
       setAnswer(data?.quizzes?.[num]?.answers[0]);
-      setPhoto(`https://misis52.clayenkitten.ru/api${data.quizzes[num].image}`);
+      setPhoto(`https://misis52.clayenkitten.ru/api${data?.quizzes[num]?.image}`);
       setText(data?.quizzes?.[num]?.text);
       setName(data?.quizzes?.[num]?.name)
+      setTurus(data?.quizzes?.[num]?.explanation)
     }
   }, [num]);
   console.log(photo);
@@ -28,9 +29,9 @@ const QuizAudio1 = ({ data, bottom, currentAnswer = '', isCorrect = false, num})
         <div className={styles.questionTatar}>
           <input type="text" value={currentAnswer} readOnly />
           <label htmlFor="">{txt}</label>
+          <span>{turus}</span>
         </div>
       </section>
-      {/* Pass onClicks prop to the bottom component */}
       {bottom}
     </main>
   );

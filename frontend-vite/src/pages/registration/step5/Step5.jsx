@@ -6,7 +6,7 @@ import image from '../../../assets/images_course/rega2.jpg'
 const Step5 = ({onClick}) => {
   return (
     <section className={styles.section}>
-        <h2>Осталось совсем <span>несного</span></h2>
+        <h2>Осталось совсем <span>немного</span></h2>
         <img className={styles.img} src={image} alt="here is the Mascot" />
         <button onClick={onClick}>
           <MainButton text={'Начать обучение'} color={'green'}/>

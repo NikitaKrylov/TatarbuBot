@@ -11,7 +11,7 @@ const Page1 = () => {
   return (
     <main className={styles.main}>
       <div className={styles.container}>
-        <a href=""><img src={right} alt="" /></a>
+        <a href="" onClick={()=>navigate("/singMain")}><img src={right} alt="" /></a>
         <div>
           <h2>Сначала <span>прослушай</span> песню <span>и постарайся</span> ее <span>почувствовать</span></h2>
           <img src={first}></img>

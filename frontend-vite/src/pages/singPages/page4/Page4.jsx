@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useSound from "use-sound"; 
 import qala from '../../../assets/music/part_music.mp3';
 
+import MainButton from '../../../components/global/Button/MainButton.jsx'
 import styles from './Page4.module.scss'
 import right from '../../../assets/icons/right.svg'
 import hamster from '../../../assets/images_course/author.jpg'
@@ -103,53 +104,52 @@ const Page4 = () => {
 
   return (
     <main className={styles.main}>
+      <button onClick={()=>navigate("/singMain")} className={styles.prev} ><img src={right} alt="arrow" /></button>
       <div className={styles.container}>
-      <a onClick={()=>navigate(-1)} className={styles.prev} href="#"><img src={right} alt="" /></a>
-      <h2>Впиши слова, которые пропущены</h2>
+        <h2>Впиши слова, которые пропущены</h2>
       
-      <section>
-        <p><input  type="text" id='check1'  value={inputValue1} onChange={handleInputChange1}/> юллыйм сина <br />
-          Туып ускэн авылым <br />
-          Карап <input  type="text" name="" id="check2"  value={inputValue2} onChange={handleInputChange2} /> сина эй <br />
-          Сагындым сине авыл
-        </p>
-        <button className={styles.btnCheck} onClick={checkAnswer}>проверить</button>
-      </section>
+        <div className={styles.section}>
+          <p><input  type="text" id='check1'  value={inputValue1} onChange={handleInputChange1}/> юллыйм сина <br />
+            Туып ускэн авылым <br />
+            Карап <input  type="text" name="" id="check2"  value={inputValue2} onChange={handleInputChange2} /> сина эй <br />
+            Сагындым сине авыл
+          </p>
+        </div>
 
-      <div className={styles.song}>
-          <img src={hamster} alt="song_img" />
-          <div className={styles.song_name}>
-            <div>
-              <h3>Сэлэм юллыйм</h3>
-              <p>Ришат Тухватуллин</p>
+        <div className={styles.song}>
+            <img src={hamster} alt="song_img" />
+            <div className={styles.song_name}>
+              <div>
+                <h3>Сэлэм юллыйм</h3>
+                <p>Ришат Тухватуллин</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className={styles.timelineAll}>
-            <input
-              type="range"
-              min="0"
-              max={duration / 1000}
-              default="0"
-              value={seconds}
-              className={styles.timeline}
-              onChange={(e) => {
-                sound.seek([e.target.value]);
-                }}
-              />
-              <div className={styles.time}>
-                <p>
-                  {currTime.min}:{currTime.sec}
-                </p>
-                <p>
-                  {time.min}:{time.sec}
-                </p>
-              </div>
-        </div>
+          <div className={styles.timelineAll}>
+              <input
+                type="range"
+                min="0"
+                max={duration / 1000}
+                default="0"
+                value={seconds}
+                className={styles.timeline}
+                onChange={(e) => {
+                  sound.seek([e.target.value]);
+                  }}
+                />
+                <div className={styles.time}>
+                  <p>
+                    {currTime.min}:{currTime.sec}
+                  </p>
+                  <p>
+                    {time.min}:{time.sec}
+                  </p>
+                </div>
+          </div>
 
         
-        <div >
+
         {!isPlaying ? (
           <button className={styles.playButton} onClick={playingButton}>
               <img src={played} alt="pause" />
@@ -160,15 +160,11 @@ const Page4 = () => {
           </button>
         )}
           
-        </div>
+        <MainButton color={"violet"} text={"ПРОВЕРИТЬ ОТРЫВОК"} onClick={checkAnswer}/>
     </div>
 
 
-          <div className={styles.playing_line}></div>
-            <button>
-                <img src={play} alt="play" />
-            </button>
-  
+            
     
    </main>
   )

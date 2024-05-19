@@ -10,9 +10,9 @@ const Page3 = () => {
   const navigate = useNavigate();
   return (
     <main className={styles.main}>
+      <button className={styles.prev} onClick={()=>navigate("/singMain")}><img src={right} alt="" /></button>
       <div className={styles.container}>
-        <a href=""><img src={right} alt="" /></a>
-          <div>
+          <div className={styles.title}>
             <h2>Теперь <span>прослушай ее по отрывкам</span>, постарайся <span>вставить изученные словa</span> и понять смысл</h2>
             <img src={mascot}></img>
           </div>

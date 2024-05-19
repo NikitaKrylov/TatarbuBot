@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import styles from './QuizeFooter.module.scss';
+import styles from './QuizFooter.module.scss';
 import axios from "axios";
 
-const QuizeFooter = ({ numquestion, onClick}) => {
+const QuizFooter = ({ numquestion, onClick}) => {
   const [button1Color, setButton1Color] = useState(null);
 
   let url = `https://misis52.clayenkitten.ru/api/quizzes/${numquestion}`;
@@ -45,4 +45,4 @@ const QuizeFooter = ({ numquestion, onClick}) => {
   
 };
 
-export default QuizeFooter;
+export default QuizFooter;

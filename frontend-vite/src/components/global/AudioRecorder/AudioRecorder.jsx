@@ -3,7 +3,7 @@ import axios from 'axios';
 import cls from './AudioRecorder.module.scss';
 import mic from '../../../assets/icons/normal/mic.svg';
 
-const AudioRecorder = () => {
+const AudioRecorder = ({numm, translate}) => {
   const [isRecording, setIsRecording] = useState(false);
   const [audioURL, setAudioURL] = useState('');
   const mediaRecorderRef = useRef(null);

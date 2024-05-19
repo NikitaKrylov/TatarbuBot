@@ -102,8 +102,8 @@ const Page4 = () => {
 
 
   return (
-
-    <div className={styles.container}>
+    <main className={styles.main}>
+      <div className={styles.container}>
       <a onClick={()=>navigate(-1)} className={styles.prev} href="#"><img src={right} alt="" /></a>
       <h2>Впиши слова, которые пропущены</h2>
       
@@ -168,8 +168,9 @@ const Page4 = () => {
             <button>
                 <img src={play} alt="play" />
             </button>
-      </div>
-    </main>
+  
+    
+   </main>
   )
 }
 

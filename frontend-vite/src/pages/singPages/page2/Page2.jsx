@@ -10,11 +10,13 @@ import author from '../../../assets/images_course/author.jpg'
 import share from '../../../assets/icons/share2.svg'
 import played from '../../../assets/icons/play.svg'
 import paused from '../../../assets/icons/pause.svg'
+import { useNavigate } from 'react-router-dom';
 
 const Page2 = () => {
 
     const [isPlaying, setIsPlaying] = useState(false);
     const [play, { pause, duration, sound }] = useSound(qala);
+    const navigate = useNavigate()
 
     const playingButton = () => {
         if (isPlaying) {
@@ -66,7 +68,7 @@ const Page2 = () => {
 
   return (
     <div className={styles.container}>
-      <a className={styles.prev} href="#"><img src={right} alt="" /></a>
+      <a onClick={()=>navigate(-1)} className={styles.prev} href="#"><img src={right} alt="" /></a>
       <section>
         <img src={hamster} className={styles.photo} alt="hamster" />
         

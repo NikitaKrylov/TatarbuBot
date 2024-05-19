@@ -3,8 +3,10 @@ import styles from './Page1.module.scss'
 import MainButton from '../../../components/global/Button/MainButton'
 import right from '../../../assets/icons/right.svg'
 import first from '../../../assets/images_course/1.jpg'
+import { useNavigate } from 'react-router-dom'
 
 const Page1 = () => {
+
   return (
     <div className={styles.container}>
       <a href=""><img src={right} alt="" /></a>

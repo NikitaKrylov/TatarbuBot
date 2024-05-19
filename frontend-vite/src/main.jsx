@@ -85,6 +85,9 @@ const routes = createBrowserRouter([
       path: '/sing/page_4',
       element: <Page4/>
   },
+  {
+    
+  }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

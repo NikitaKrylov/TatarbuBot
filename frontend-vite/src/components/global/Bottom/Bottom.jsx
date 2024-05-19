@@ -30,6 +30,7 @@ export default function Bottom (){
                 setExplore(explore_active);
                 setInteresting(interesting_normal);
                 setProfile(profile_normal);
+                navigate("/singMain")
                 break
             case "interesting":
                 setHome(home_normal);
